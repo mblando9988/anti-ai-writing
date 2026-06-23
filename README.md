@@ -1,0 +1,49 @@
+# anti-ai-writing
+
+Flags AI-sounding text by comparing it to labeled examples instead of matching keywords.
+
+It embeds a passage with Apple's NLEmbedding (sentence vectors) and runs a k-nearest-neighbor
+vote against a corpus of AI and human writing. If most of the nearest examples are AI, it flags
+the text. There's no word list in the decision.
+
+macOS only (uses the NaturalLanguage framework). Needs swiftc and python3.
+
+## build
+
+```
+swiftc -O src/anti_ai_sem.swift -o bin/anti_ai_sem
+```
+
+## run
+
+```
+echo '{"transcript_path":"turn.jsonl"}' | bin/anti_ai_sem
+```
+
+Exit 2 means flagged, 0 means not. Bad or empty input exits 0.
+
+## test
+
+```
+python3 test/verify_sem.py
+```
+
+Runs every corpus item through the binary and prints precision/recall. Last run was 0.94/0.99
+on 347 examples. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split.
+
+## layout
+
+```
+src/      swift source + the corpus embedder
+bin/      built binary (gitignored, build it yourself)
+corpus/   labeled examples and their embeddings
+test/     verifier + the a/b script
+```
+
+To change what it catches, add rows to `corpus/anti_ai_corpus.json`, then re-embed:
+`cd corpus && swift ../src/embed_corpus.swift`.
+
+## note
+
+The corpus rows tagged `examples.md/*` came from github.com/kierstenicy452/anti-ai-writing.
+Attribute or remove them before making this public.

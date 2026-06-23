@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+# throwaway workspace
+scratch/
+# build artifacts (compiled hook — rebuild with: swiftc -O src/anti_ai_sem.swift -o bin/anti_ai_sem)
+bin/anti_ai_sem
+.build/
+# python
+__pycache__/
+*.pyc

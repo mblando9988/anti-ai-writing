@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "Stop": [
+      { "hooks": [ { "type": "command", "command": "/ABSOLUTE/PATH/TO/anti-ai-writing/bin/anti_ai_sem" } ] }
+    ]
+  }
+}
