@@ -38,6 +38,8 @@ if refs.isEmpty { allow("no reference embeddings") }
 let input = FileHandle.standardInput.readDataToEndOfFile()
 if input.isEmpty { allow("empty stdin") }
 guard let obj = (try? JSONSerialization.jsonObject(with: input)) as? [String: Any] else { allow("invalid stdin") }
+// if we already blocked once this turn, don't block again — avoids the re-block loop
+if (obj["stop_hook_active"] as? Bool) == true { allow("stop_hook_active") }
 
 func lastAssistantText(_ p: String) -> String {
     guard let c = try? String(contentsOfFile: p, encoding: .utf8) else { return "" }
