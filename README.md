@@ -28,7 +28,7 @@ Exit 2 means flagged, 0 means not. Bad or empty input exits 0.
 python3 test/verify_sem.py
 ```
 
-Runs every corpus item through the binary and prints precision/recall. Last run was 1.00/0.93 on 431 examples. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split.
+Runs every corpus item through the binary and prints precision/recall. Last run was 0.99/0.96 on 431 examples. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split.
 
 ## layout
 

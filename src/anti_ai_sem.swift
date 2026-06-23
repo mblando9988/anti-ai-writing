@@ -128,10 +128,23 @@ let toks = Set(lower.split(whereSeparator: { !($0.isLetter || $0 == "-") }).map(
 let hits = stems.filter { s in toks.contains(where: { $0.hasPrefix(s) }) }
 if hits.count >= 3 { struc.append("buzzword_stacking") }
 
-// verdict: flag only when clearly closer to AI-style than human-style.
-// the margin IS the reason; borderline passages (near 0) are allowed.
-if margin > MARGIN {
-    block(String(format: "+%.2f toward AI (ai=%.2f vs human=%.2f); evidence: %@",
-                 margin, aiMean, huMean, struc.isEmpty ? "none" : struc.joined(separator: ",")))
+// Positional nudge: mean-pooling discards word order, so add it back as a small,
+// bounded adjustment. The embedding `margin` stays the base of the score.
+let opening = String(text.prefix(120)).lowercased()
+let openerPraise = rx("^\\W*(great|excellent|fantastic|brilliant|wonderful|amazing|perfect)\\s+(question|point|observation)") || opening.range(of: #"^\W*(honestly|frankly|absolutely|certainly|of course)\b"#, options: .regularExpression) != nil
+func anyRx(_ p: String) -> Bool { lower.range(of: p, options: .regularExpression) != nil }
+let validation = anyRx(#"your (theory|hypothesis|framing|instinct|intuition|perspective|premise) (is|sounds)|you raise (a )?(great|good|valid|important) point|completely (valid|understandable)|spot on|on the right track|you'?re (absolutely )?right"#)
+let disagree = anyRx(#"\bhowever\b|\bin fact\b|\bactually\b|not (quite|the case|true|wrong|right)|i'?d push back|the (data|evidence) (does|doesn'?t|suggest|show)|the opposite|but no\b|but not\b|but the\b"#)
+var nudge = 0.0, why: [String] = []
+if openerPraise { nudge += 0.05; why.append("opener-praise") }
+if validation   { nudge += 0.03; why.append("validation") }
+if disagree     { nudge -= 0.06; why.append("disagreement(redeems)") }
+let score = margin + nudge
+
+// verdict: embedding margin + bounded positional nudge. borderline passages pass.
+if score > MARGIN {
+    block(String(format: "score=%.2f (margin=%.2f, nudge=%+.2f %@); evidence: %@",
+                 score, margin, nudge, why.isEmpty ? "—" : why.joined(separator: ","),
+                 struc.isEmpty ? "none" : struc.joined(separator: ",")))
 }
-allow(String(format: "margin=%.2f (ai=%.2f human=%.2f) — reads human", margin, aiMean, huMean))
+allow(String(format: "score=%.2f (margin=%.2f nudge=%+.2f) — reads human", score, margin, nudge))

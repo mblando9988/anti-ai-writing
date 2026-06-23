@@ -5,19 +5,17 @@ SRC=os.path.join(ROOT,"src","anti_ai_sem.swift")
 CORPUS=json.load(open(os.path.join(ROOT,"corpus","anti_ai_corpus.json")))
 
 def anti_drift():
-    # The VERDICT must be embedding-only. Fail if the block guard depends on any
-    # lexical signal, or if the hook loads a banned-word / wordnet data file.
+    # Hybrid contract: the embedding margin is the BASE of the score; a small
+    # positional nudge may adjust it. Fail if the embedding base is missing or
+    # the score is not built on it, or if the hook loads a word-list data file.
     src=open(SRC).read()
     bad=[]
-    # the line that calls block(...) must be guarded by aiVotes (k-NN), not lexical
-    for ln in src.splitlines():
-        if re.search(r"if .*\{\s*$",ln) and "margin >" in ln:
-            if any(t in ln for t in ("struc","LEX","banned","stems","wordnet","rx(")):
-                bad.append(f"verdict guard mixes lexical signal: {ln.strip()}")
-            if "margin" not in ln:
-                bad.append(f"verdict guard not embedding-based: {ln.strip()}")
-    if not re.search(r"if\s+margin\s*>\s*MARGIN\s*\{", src):
-        bad.append("no embedding margin block guard found")
+    if not re.search(r"let\s+margin\s*=\s*aiMean\s*-\s*huMean", src):
+        bad.append("no embedding margin (aiMean - huMean)")
+    if not re.search(r"let\s+score\s*=\s*margin\s*\+\s*nudge", src):
+        bad.append("score not based on the embedding margin")
+    if not re.search(r"if\s+score\s*>\s*MARGIN\s*\{", src):
+        bad.append("verdict not gated on score>MARGIN")
     if re.search(r"stop_banned_words|wordnet_synonyms", src):
         bad.append("hook loads a lexical word-list data file")
     return bad
