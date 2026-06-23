@@ -40,8 +40,16 @@ corpus/   labeled examples and their embeddings
 test/     verifier + the a/b script
 ```
 
-To change what it catches, add rows to `corpus/anti_ai_corpus.json`, then re-embed:
-`cd corpus && swift ../src/embed_corpus.swift`.
+## teach it more
+
+Add example sentences with one command (no editing files):
+
+```
+python3 add.py ai    "an AI-sounding sentence"
+python3 add.py human "a normal human sentence"
+```
+
+It appends the example and rebuilds. Add a bunch and it gets better at the kinds you give it.
 
 ## note
 
