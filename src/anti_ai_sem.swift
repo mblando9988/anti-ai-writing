@@ -1,5 +1,5 @@
 #!/usr/bin/env swift
-// Embeds the turn and does a k-NN vote against corpus_emb.json.
+// Embeds the turn, scores its margin toward AI vs human examples in corpus_emb.json.
 // exit 2 = flagged, 0 = not. Short or broken input exits 0.
 import Foundation
 import NaturalLanguage
@@ -80,13 +80,22 @@ func cos(_ a: [Double], _ b: [Double]) -> Double {
     return (na == 0 || nb == 0) ? 0 : d / (na.squareRoot()*nb.squareRoot())
 }
 
-// k-NN, skipping any exact-text match so it can't vote for itself
-var sims: [(Double, String)] = []
-for r in refs where r.text != text { sims.append((cos(q, r.v), r.label)) }
-sims.sort { $0.0 > $1.0 }
-let k = 5
-let top = sims.prefix(k)
-let aiVotes = top.filter { $0.1 == "ai" }.count
+// Contrastive margin: how much closer is this passage to the AI examples than to
+// the human ones. A signed reason, not a bare vote. Skip exact-text self matches.
+var aiSims: [Double] = [], huSims: [Double] = []
+for r in refs where r.text != text {
+    let c = cos(q, r.v)
+    if r.label == "ai" { aiSims.append(c) } else { huSims.append(c) }
+}
+func topMean(_ a: [Double], _ k: Int) -> Double {
+    let s = a.sorted(by: >).prefix(k); return s.isEmpty ? 0 : s.reduce(0, +) / Double(s.count)
+}
+let aiMean = topMean(aiSims, 5), huMean = topMean(huSims, 5)
+let margin = aiMean - huMean
+let MARGIN: Double = {
+    if let s = ProcessInfo.processInfo.environment["SR_MARGIN"], let v = Double(s) { return v }
+    return 0.02
+}()
 
 // Structural detectors — a passage-level corroborator (never a single word).
 func rx(_ p: String) -> Bool { (try? NSRegularExpression(pattern: p, options: [.caseInsensitive]))
@@ -117,9 +126,10 @@ let toks = Set(lower.split(whereSeparator: { !($0.isLetter || $0 == "-") }).map(
 let hits = stems.filter { s in toks.contains(where: { $0.hasPrefix(s) }) }
 if hits.count >= 3 { struc.append("buzzword_stacking") }
 
-// verdict is the k-NN vote only; structural list is just logged as evidence
-let nn = top.first.map { String(format: "cos=%.2f", $0.0) } ?? ""
-if aiVotes >= 3 {
-    block("semantic: \(aiVotes)/\(k) nearest AI (\(nn)); structural evidence: \(struc.isEmpty ? "none" : struc.joined(separator: ","))")
+// verdict: flag only when clearly closer to AI-style than human-style.
+// the margin IS the reason; borderline passages (near 0) are allowed.
+if margin > MARGIN {
+    block(String(format: "+%.2f toward AI (ai=%.2f vs human=%.2f); evidence: %@",
+                 margin, aiMean, huMean, struc.isEmpty ? "none" : struc.joined(separator: ",")))
 }
-allow("aiVotes=\(aiVotes)/\(k) structural=\(struc) — reads human")
+allow(String(format: "margin=%.2f (ai=%.2f human=%.2f) — reads human", margin, aiMean, huMean))

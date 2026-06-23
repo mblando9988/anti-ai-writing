@@ -11,13 +11,13 @@ def anti_drift():
     bad=[]
     # the line that calls block(...) must be guarded by aiVotes (k-NN), not lexical
     for ln in src.splitlines():
-        if re.search(r"if .*\{\s*$",ln) and "aiVotes" in ln:
+        if re.search(r"if .*\{\s*$",ln) and "margin >" in ln:
             if any(t in ln for t in ("struc","LEX","banned","stems","wordnet","rx(")):
                 bad.append(f"verdict guard mixes lexical signal: {ln.strip()}")
-            if "aiVotes" not in ln:
+            if "margin" not in ln:
                 bad.append(f"verdict guard not embedding-based: {ln.strip()}")
-    if not re.search(r"if\s+aiVotes\s*>=?\s*\d+\s*\{", src):
-        bad.append("no embedding (aiVotes) block guard found")
+    if not re.search(r"if\s+margin\s*>\s*MARGIN\s*\{", src):
+        bad.append("no embedding margin block guard found")
     if re.search(r"stop_banned_words|wordnet_synonyms", src):
         bad.append("hook loads a lexical word-list data file")
     return bad
