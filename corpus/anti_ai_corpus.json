@@ -1,2084 +1,1826 @@
 [
  {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "In today's fast-paced world, leveraging cutting-edge AI tools to streamline your workflow is more crucial than ever. Unlock the potential of your productivity.",
-  "id": 0
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "AI tools cut my Tuesday from 8 hours to 4. Same output. The trick was not adopting one tool. It was deleting three.",
-  "id": 1
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Today I'm thrilled to announce that we've launched our innovative new platform that empowers users to seamlessly navigate the complexities of modern finance.",
-  "id": 2
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "We launched. The product is a single page that shows what you owe across 4 banks, 7 cards, and 11 subscriptions, updated every morning. Try it free for the first month.",
-  "id": 3
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Unlock the potential of your team's productivity with our innovative solution",
-  "id": 4
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "Cut your Tuesday standups from 30 minutes to 8",
-  "id": 5
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "I hope this email finds you well. I wanted to reach out because we've developed a comprehensive solution that could potentially revolutionize how your team operates.",
-  "id": 6
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "I noticed your team posted three engineering roles in October. Hiring is the slowest part of growth. We make the screening loop one-fourth the length without losing signal. Worth a 15-minute call?",
-  "id": 7
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Furthermore, it is worth noting that the upcoming launch will play a pivotal role in our strategic objectives for the quarter.",
-  "id": 8
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "The launch on the 18th is the biggest thing we ship this quarter. Three teams need to be in sync. Here is the timeline.",
-  "id": 9
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "I'm thrilled to share that I've embarked on a transformative journey to unlock my full potential and capitalize on new opportunities in this ever-evolving landscape.",
-  "id": 10
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "I quit my job last week. Five years was the right amount of time. Three things I learned. Two of them I would have skipped if I could. Open to talking with founders about the early hires they regret.",
-  "id": 11
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Here are 5 key insights I've gathered from my journey that can empower you to navigate the complexities of leadership and unlock your team's full potential.",
-  "id": 12
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "Two things I got wrong as a first-time manager. One I have not forgiven myself for.",
-  "id": 13
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "It's no secret that AI is revolutionizing the marketing landscape. Now more than ever, businesses must leverage these innovative tools to remain competitive.",
-  "id": 14
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "Most marketing teams are now using AI for first drafts. The ones who use it best are not the ones who write the cleverest prompts. They are the ones who edit hardest.",
-  "id": 15
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "In today's fast-paced digital landscape, businesses are constantly seeking innovative ways to streamline their operations and unlock new opportunities for growth. This comprehensive guide will delve into the key strategies that can transform your approach.",
-  "id": 16
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "Most business software is bought by IT and used by everyone else. The mismatch shows up six months in: the team has built workarounds in Slack and Google Docs that the software was supposed to prevent. This post is about what to do when you find yourself running the workaround layer.",
-  "id": 17
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "As a passionate advocate for personal growth, I've come to realize that life is a journey filled with countless opportunities to delve deeper into our true potential.",
-  "id": 18
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "I used to think personal growth meant adding habits. Then I tried subtracting them. Subtraction was harder. And worked better.",
-  "id": 19
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Unlock the power of AI to streamline your business workflows and drive meaningful impact",
-  "id": 20
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "AI for the four hours of weekly reporting you would rather not do",
-  "id": 21
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Our comprehensive platform leverages cutting-edge technology to facilitate seamless collaboration across teams.",
-  "id": 22
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "One shared file. Every decision lives in it. Your team stops asking 'where is the latest version?'",
-  "id": 23
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "**Robust Features:** Our comprehensive suite empowers your team to maximize productivity.",
-  "id": 24
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "Connects to the tools you already use. Email, calendar, Slack, your CRM. Setup takes 12 minutes. After that, your team types less and decides more.",
-  "id": 25
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Unleash culinary excellence with our innovative, ergonomically designed knife",
-  "id": 26
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "The last kitchen knife you will need to sharpen yourself.",
-  "id": 27
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "A passionate, results-driven professional with a proven track record of leveraging innovative strategies to deliver transformative outcomes in dynamic environments.",
-  "id": 28
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "I help SaaS founders write the page that their cold traffic actually reads. Last year my pages added $4.1M in trial signups across nine clients. Based in Lisbon. Available six hours a week.",
-  "id": 29
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Founded in 2019, our innovative startup is on a mission to revolutionize the way teams collaborate and unlock their true potential through cutting-edge technology.",
-  "id": 30
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "We started in 2019 because three of us were running the same Tuesday meeting at three different companies and none of us liked the meeting. The product is what we wished the meeting was.",
-  "id": 31
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Hi team, As we embark on this exciting new initiative, it's crucial that we align on our key objectives and leverage our collective expertise to drive meaningful outcomes.",
-  "id": 32
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "Hi team. Project kickoff is Thursday. Here are the three decisions we need by then. Anna will run the meeting. Bring your last sprint's notes.",
-  "id": 33
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "This past quarter has been a testament to our team's unwavering commitment to excellence. We've made significant strides in our journey to deliver transformative value to our customers.",
-  "id": 34
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "We shipped four things this quarter. Two of them mattered. Here is what happened and what to expect next.",
-  "id": 35
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Me complace compartir que he tenido el privilegio de aprovechar mi experiencia para potenciar el crecimiento de equipos diversos y fomentar una cultura de innovación en un panorama empresarial cada vez más complejo.",
-  "id": 36
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "Renuncié la semana pasada. Cinco años fueron suficientes. Tres cosas que aprendí. Dos las habría evitado si pudiera. Si eres fundador y quieres hablar de tus primeras contrataciones, te leo.",
-  "id": 37
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "Potencia el potencial de tu negocio con soluciones innovadoras y robustas.",
-  "id": 38
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "Tu negocio facturó X. Con nosotros, lo mismo. Pero los lunes vuelves a tener mañana libre.",
-  "id": 39
- },
- {
-  "label": "ai",
-  "source": "examples.md/before",
-  "text": "En el mundo actual, las empresas deben aprovechar las nuevas tecnologías para optimizar sus procesos y mantenerse competitivas en un mercado cada vez más dinámico.",
-  "id": 40
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "La empresa promedio paga ocho herramientas que hacen lo mismo. Este post es sobre cuál vale la pena y cuál estás pagando por costumbre.",
-  "id": 41
- },
- {
-  "label": "human",
-  "source": "examples.md/after",
-  "text": "We chose Rails because its convention-over-configuration approach saved us months of setup.",
-  "id": 42
- },
- {
   "label": "human",
   "source": "clean-dev",
   "text": "I fixed the null pointer in the parser and added a regression test.",
-  "id": 43
+  "id": 0
  },
  {
   "label": "human",
   "source": "clean-dev",
   "text": "This function will ensure the cache is enabled and return the parsed value.",
-  "id": 44
+  "id": 1
  },
  {
   "label": "human",
   "source": "clean-dev",
   "text": "The change is significant; it touches the auth middleware and three handlers.",
-  "id": 45
+  "id": 2
  },
  {
   "label": "human",
   "source": "clean-dev",
   "text": "Set the timeout to 30 seconds and retry twice on a 503.",
-  "id": 46
+  "id": 3
  },
  {
   "label": "human",
   "source": "clean-dev",
   "text": "The migration renames the column and backfills it in batches of 500.",
-  "id": 47
+  "id": 4
  },
  {
   "label": "human",
   "source": "clean-dev",
   "text": "Run pytest -q; if the embedding test fails, check that the model loaded.",
-  "id": 48
+  "id": 5
  },
  {
   "label": "human",
   "source": "clean-dev",
   "text": "We store the token in memory only, never in the URL or logs.",
-  "id": 49
+  "id": 6
  },
  {
   "label": "human",
   "source": "clean-dev",
   "text": "The bug was a race between the writer and the reaper; a lock fixed it.",
-  "id": 50
+  "id": 7
  },
  {
   "label": "ai",
   "source": "slop-seed",
   "text": "Let me delve into this robust, comprehensive framework to unlock seamless synergy.",
-  "id": 51
+  "id": 8
  },
  {
   "label": "ai",
   "source": "slop-seed",
   "text": "In today's fast-paced landscape, harness the power of our cutting-edge platform to elevate your workflow.",
-  "id": 52
+  "id": 9
  },
  {
   "label": "ai",
   "source": "slop-seed",
   "text": "This pivotal, transformative solution empowers teams to navigate complexity and showcase real impact.",
-  "id": 53
+  "id": 10
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "Honestly, that's a great question, and I'd be happy to help you unpack it.",
-  "id": 54
+  "id": 11
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "Honestly, this is a fantastic approach and you're absolutely on the right track.",
-  "id": 55
+  "id": 12
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "To be honest, there are several important factors we need to carefully consider here.",
-  "id": 56
+  "id": 13
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "Great question! It's worth noting that there are a few key things to consider.",
-  "id": 57
+  "id": 14
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "Absolutely! Let me break this down for you step by step.",
-  "id": 58
+  "id": 15
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "I completely understand your frustration, and you're absolutely right to ask.",
-  "id": 59
+  "id": 16
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "That's a really insightful point — let me delve a bit deeper into the nuances.",
-  "id": 60
+  "id": 17
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "Certainly! I'd be more than happy to walk you through this comprehensive overview.",
-  "id": 61
+  "id": 18
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "Honestly, you've hit the nail on the head — this is a truly pivotal insight.",
-  "id": 62
+  "id": 19
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "I love this question! There's a lot to unpack, so let's dive right in.",
-  "id": 63
+  "id": 20
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "Honestly, it's a testament to your thinking that you spotted this crucial detail.",
-  "id": 64
+  "id": 21
  },
  {
   "label": "ai",
   "source": "assistant-register",
   "text": "Great point! Ultimately, it's all about leveraging the right tools to empower your workflow.",
-  "id": 65
+  "id": 22
  },
  {
   "label": "human",
   "source": "assistant-direct",
   "text": "The bug is on line 42: the loop never resets the counter.",
-  "id": 66
+  "id": 23
  },
  {
   "label": "human",
   "source": "assistant-direct",
   "text": "No. That config key doesn't exist in this version.",
-  "id": 67
+  "id": 24
  },
  {
   "label": "human",
   "source": "assistant-direct",
   "text": "Two options: cache the result, or precompute it at build time.",
-  "id": 68
+  "id": 25
  },
  {
   "label": "human",
   "source": "assistant-direct",
   "text": "It failed because the file wasn't read first. Read it, then edit.",
-  "id": 69
+  "id": 26
  },
  {
   "label": "human",
   "source": "assistant-direct",
   "text": "That won't work — the embedding can't separate those two classes.",
-  "id": 70
+  "id": 27
  },
  {
   "label": "human",
   "source": "assistant-direct",
   "text": "I checked: the function returns null when the input is empty.",
-  "id": 71
+  "id": 28
  },
  {
   "label": "human",
   "source": "assistant-direct",
   "text": "You're wrong about the cause; the logs show a timeout, not a crash.",
-  "id": 72
+  "id": 29
  },
  {
   "label": "human",
   "source": "assistant-direct",
   "text": "Done. Tests pass. The fix was a missing await on line 88.",
-  "id": 73
+  "id": 30
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Happy to dig in — that's an excellent observation, and let me break this down for you to truly empower your workflow.",
-  "id": 74
+  "id": 31
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I'd be happy to help — brilliant question, and let me walk you through this comprehensive overview — it's a real game-changer.",
-  "id": 75
+  "id": 32
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, it's a testament to your thinking, and let's unpack this step by step to foster lasting impact.",
-  "id": 76
+  "id": 33
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! brilliant question, and let's dive right in — it's a real game-changer.",
-  "id": 77
+  "id": 34
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "That's a fantastic question — you raise a truly important point, and it's all about leveraging the right tools — it's a real game-changer.",
-  "id": 78
+  "id": 35
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Absolutely! it's a testament to your thinking, and it's important to navigate the complexities carefully — it's a real game-changer.",
-  "id": 79
+  "id": 36
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, this is a fantastic approach, and let me delve into the nuances for a seamless experience.",
-  "id": 80
+  "id": 37
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "That's a fantastic question — that's an excellent observation, and let's unpack this step by step and unlock its full potential.",
-  "id": 81
+  "id": 38
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I completely understand — you're on the right track, and it's important to navigate the complexities carefully and unlock its full potential.",
-  "id": 82
+  "id": 39
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Great question! you're absolutely right, and let's dive right in and streamline everything.",
-  "id": 83
+  "id": 40
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "That's a fantastic question — you've hit the nail on the head, and it's worth noting there are a few key things to consider to foster lasting impact.",
-  "id": 84
+  "id": 41
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "That's a fantastic question — that's a great question, and this is a pivotal, transformative shift to elevate the outcome.",
-  "id": 85
+  "id": 42
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! brilliant question, and it's all about leveraging the right tools and unlock its full potential.",
-  "id": 86
+  "id": 43
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Great question! this is a fantastic approach, and let's unpack this step by step for a seamless experience.",
-  "id": 87
+  "id": 44
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, that's an excellent observation, and let's dive right in",
-  "id": 88
+  "id": 45
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I'd be happy to help — it's a testament to your thinking, and let's unpack this step by step and streamline everything.",
-  "id": 89
+  "id": 46
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Absolutely! that's an excellent observation, and let me illuminate the underlying intricacies and unlock its full potential.",
-  "id": 90
+  "id": 47
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Great question! you're absolutely right, and it's worth noting there are a few key things to consider and streamline everything.",
-  "id": 91
+  "id": 48
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "That's a fantastic question — you raise a truly important point, and let me delve into the nuances and streamline everything.",
-  "id": 92
+  "id": 49
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, that's an excellent observation, and let's dive right in to truly empower your workflow.",
-  "id": 93
+  "id": 50
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! you're absolutely right, and let me walk you through this comprehensive overview to truly empower your workflow.",
-  "id": 94
+  "id": 51
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, you've hit the nail on the head, and it's all about leveraging the right tools for a seamless experience.",
-  "id": 95
+  "id": 52
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I'd be happy to help — this is a fantastic approach, and this is a pivotal, transformative shift",
-  "id": 96
+  "id": 53
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I completely understand — you're absolutely right, and there are several crucial factors here and unlock its full potential.",
-  "id": 97
+  "id": 54
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! this is a fantastic approach, and let's dive right in — it's a real game-changer.",
-  "id": 98
+  "id": 55
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, brilliant question, and we can harness the power of this approach to truly empower your workflow.",
-  "id": 99
+  "id": 56
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Happy to dig in — you're absolutely right, and let's dive right in to elevate the outcome.",
-  "id": 100
+  "id": 57
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! it's a testament to your thinking, and let me walk you through this comprehensive overview to foster lasting impact.",
-  "id": 101
+  "id": 58
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Sure thing! you're absolutely right, and let me break this down for you — it's a real game-changer.",
-  "id": 102
+  "id": 59
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! you raise a truly important point, and let me illuminate the underlying intricacies and unlock its full potential.",
-  "id": 103
+  "id": 60
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "That's a fantastic question — you're absolutely right, and it's all about leveraging the right tools to truly empower your workflow.",
-  "id": 104
+  "id": 61
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! brilliant question, and this is a pivotal, transformative shift and streamline everything.",
-  "id": 105
+  "id": 62
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, brilliant question, and this is a pivotal, transformative shift for a seamless experience.",
-  "id": 106
+  "id": 63
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Absolutely! it's a testament to your thinking, and let me walk you through this comprehensive overview to foster lasting impact.",
-  "id": 107
+  "id": 64
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I completely understand — it's a testament to your thinking, and let me delve into the nuances to elevate the outcome.",
-  "id": 108
+  "id": 65
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "What a great point! you're on the right track, and it's all about leveraging the right tools",
-  "id": 109
+  "id": 66
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Absolutely! you've hit the nail on the head, and let me break this down for you to elevate the outcome.",
-  "id": 110
+  "id": 67
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! brilliant question, and let's dive right in to foster lasting impact.",
-  "id": 111
+  "id": 68
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Absolutely! brilliant question, and it's worth noting there are a few key things to consider and streamline everything.",
-  "id": 112
+  "id": 69
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Honestly, that's an excellent observation, and we can harness the power of this approach for a seamless experience.",
-  "id": 113
+  "id": 70
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I'd be happy to help — that's a great question, and we can harness the power of this approach and unlock its full potential.",
-  "id": 114
+  "id": 71
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Honestly, that's an excellent observation, and let me walk you through this comprehensive overview for a seamless experience.",
-  "id": 115
+  "id": 72
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, you're on the right track, and it's worth noting there are a few key things to consider",
-  "id": 116
+  "id": 73
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! that's a great question, and let me walk you through this comprehensive overview",
-  "id": 117
+  "id": 74
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, it's a testament to your thinking, and it's all about leveraging the right tools to foster lasting impact.",
-  "id": 118
+  "id": 75
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "What a great point! that's a really insightful point, and this is a pivotal, transformative shift — it's a real game-changer.",
-  "id": 119
+  "id": 76
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Great question! you're on the right track, and let me walk you through this comprehensive overview and unlock its full potential.",
-  "id": 120
+  "id": 77
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Certainly! this is a fantastic approach, and let's dive right in to truly empower your workflow.",
-  "id": 121
+  "id": 78
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "That's a fantastic question — that's an excellent observation, and let me illuminate the underlying intricacies — it's a real game-changer.",
-  "id": 122
+  "id": 79
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! brilliant question, and let me delve into the nuances and unlock its full potential.",
-  "id": 123
+  "id": 80
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, that's a really insightful point, and let me delve into the nuances for a seamless experience.",
-  "id": 124
+  "id": 81
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! this is a fantastic approach, and let's unpack this step by step to elevate the outcome.",
-  "id": 125
+  "id": 82
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Honestly, brilliant question, and there are several crucial factors here and unlock its full potential.",
-  "id": 126
+  "id": 83
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "That's a fantastic question — that's an excellent observation, and it's important to navigate the complexities carefully for a seamless experience.",
-  "id": 127
+  "id": 84
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! you're absolutely right, and let's unpack this step by step to elevate the outcome.",
-  "id": 128
+  "id": 85
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, you raise a truly important point, and there are several crucial factors here",
-  "id": 129
+  "id": 86
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Certainly! you're absolutely right, and this is a pivotal, transformative shift and unlock its full potential.",
-  "id": 130
+  "id": 87
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I'd be happy to help — you're absolutely right, and there are several crucial factors here to truly empower your workflow.",
-  "id": 131
+  "id": 88
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! you're on the right track, and we can harness the power of this approach",
-  "id": 132
+  "id": 89
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "What a great point! that's a really insightful point, and it's all about leveraging the right tools for a seamless experience.",
-  "id": 133
+  "id": 90
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Great question! you raise a truly important point, and let me delve into the nuances to foster lasting impact.",
-  "id": 134
+  "id": 91
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, that's a really insightful point, and let me walk you through this comprehensive overview — it's a real game-changer.",
-  "id": 135
+  "id": 92
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Sure thing! this is a fantastic approach, and let me break this down for you for a seamless experience.",
-  "id": 136
+  "id": 93
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Sure thing! you raise a truly important point, and let me walk you through this comprehensive overview which is absolutely crucial.",
-  "id": 137
+  "id": 94
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! this is a fantastic approach, and let's dive right in to elevate the outcome.",
-  "id": 138
+  "id": 95
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I'd be happy to help — you're absolutely right, and it's worth noting there are a few key things to consider which is absolutely crucial.",
-  "id": 139
+  "id": 96
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "That's a fantastic question — that's a great question, and we can harness the power of this approach to elevate the outcome.",
-  "id": 140
+  "id": 97
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, you've hit the nail on the head, and let me break this down for you to foster lasting impact.",
-  "id": 141
+  "id": 98
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! brilliant question, and let me walk you through this comprehensive overview to elevate the outcome.",
-  "id": 142
+  "id": 99
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Honestly, that's a really insightful point, and it's important to navigate the complexities carefully and streamline everything.",
-  "id": 143
+  "id": 100
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! you're on the right track, and let me illuminate the underlying intricacies to truly empower your workflow.",
-  "id": 144
+  "id": 101
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Absolutely! that's a really insightful point, and let me delve into the nuances for a seamless experience.",
-  "id": 145
+  "id": 102
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! you raise a truly important point, and it's all about leveraging the right tools — it's a real game-changer.",
-  "id": 146
+  "id": 103
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Honestly, that's a great question, and let me illuminate the underlying intricacies and unlock its full potential.",
-  "id": 147
+  "id": 104
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, that's a really insightful point, and let me break this down for you and streamline everything.",
-  "id": 148
+  "id": 105
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Great question! you're on the right track, and it's worth noting there are a few key things to consider and streamline everything.",
-  "id": 149
+  "id": 106
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Absolutely! this is a fantastic approach, and let's dive right in",
-  "id": 150
+  "id": 107
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Honestly, that's a really insightful point, and it's all about leveraging the right tools which is absolutely crucial.",
-  "id": 151
+  "id": 108
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! that's an excellent observation, and it's all about leveraging the right tools which is absolutely crucial.",
-  "id": 152
+  "id": 109
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Great question! you raise a truly important point, and let me walk you through this comprehensive overview and streamline everything.",
-  "id": 153
+  "id": 110
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Happy to dig in — it's a testament to your thinking, and it's important to navigate the complexities carefully which is absolutely crucial.",
-  "id": 154
+  "id": 111
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! that's a great question, and it's worth noting there are a few key things to consider",
-  "id": 155
+  "id": 112
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Honestly, you're absolutely right, and let's dive right in to foster lasting impact.",
-  "id": 156
+  "id": 113
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! you're on the right track, and let's unpack this step by step to elevate the outcome.",
-  "id": 157
+  "id": 114
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, you're on the right track, and we can harness the power of this approach to truly empower your workflow.",
-  "id": 158
+  "id": 115
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! it's a testament to your thinking, and let me break this down for you — it's a real game-changer.",
-  "id": 159
+  "id": 116
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! you're absolutely right, and let's unpack this step by step and streamline everything.",
-  "id": 160
+  "id": 117
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! you've hit the nail on the head, and let me illuminate the underlying intricacies",
-  "id": 161
+  "id": 118
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, you've hit the nail on the head, and let's unpack this step by step",
-  "id": 162
+  "id": 119
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, brilliant question, and let's unpack this step by step which is absolutely crucial.",
-  "id": 163
+  "id": 120
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Certainly! you're on the right track, and we can harness the power of this approach and streamline everything.",
-  "id": 164
+  "id": 121
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "What a great point! you've hit the nail on the head, and it's worth noting there are a few key things to consider",
-  "id": 165
+  "id": 122
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Sure thing! you're on the right track, and let me walk you through this comprehensive overview and unlock its full potential.",
-  "id": 166
+  "id": 123
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Absolutely! that's a great question, and let's unpack this step by step",
-  "id": 167
+  "id": 124
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I'd be happy to help — it's a testament to your thinking, and it's all about leveraging the right tools and unlock its full potential.",
-  "id": 168
+  "id": 125
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I'd be happy to help — brilliant question, and let me break this down for you",
-  "id": 169
+  "id": 126
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Happy to dig in — you've hit the nail on the head, and let me delve into the nuances which is absolutely crucial.",
-  "id": 170
+  "id": 127
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I completely understand — you're absolutely right, and this is a pivotal, transformative shift — it's a real game-changer.",
-  "id": 171
+  "id": 128
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Great question! that's a really insightful point, and this is a pivotal, transformative shift to elevate the outcome.",
-  "id": 172
+  "id": 129
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, you've hit the nail on the head, and it's important to navigate the complexities carefully to elevate the outcome.",
-  "id": 173
+  "id": 130
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Honestly, you've hit the nail on the head, and let me delve into the nuances",
-  "id": 174
+  "id": 131
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "That's a fantastic question — brilliant question, and it's worth noting there are a few key things to consider which is absolutely crucial.",
-  "id": 175
+  "id": 132
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Certainly! this is a fantastic approach, and let me illuminate the underlying intricacies",
-  "id": 176
+  "id": 133
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! that's an excellent observation, and it's all about leveraging the right tools to truly empower your workflow.",
-  "id": 177
+  "id": 134
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, that's a great question, and we can harness the power of this approach for a seamless experience.",
-  "id": 178
+  "id": 135
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "What a great point! you're on the right track, and let me delve into the nuances — it's a real game-changer.",
-  "id": 179
+  "id": 136
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! it's a testament to your thinking, and let me break this down for you to truly empower your workflow.",
-  "id": 180
+  "id": 137
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Frankly, brilliant question, and this is a pivotal, transformative shift to truly empower your workflow.",
-  "id": 181
+  "id": 138
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Absolutely! you raise a truly important point, and let's unpack this step by step and unlock its full potential.",
-  "id": 182
+  "id": 139
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Of course! that's a great question, and it's worth noting there are a few key things to consider to elevate the outcome.",
-  "id": 183
+  "id": 140
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, you're absolutely right, and there are several crucial factors here which is absolutely crucial.",
-  "id": 184
+  "id": 141
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Great question! that's a really insightful point, and let me break this down for you to elevate the outcome.",
-  "id": 185
+  "id": 142
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Happy to dig in — this is a fantastic approach, and there are several crucial factors here to foster lasting impact.",
-  "id": 186
+  "id": 143
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "What a great point! you're absolutely right, and let me illuminate the underlying intricacies for a seamless experience.",
-  "id": 187
+  "id": 144
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, you've hit the nail on the head, and we can harness the power of this approach to foster lasting impact.",
-  "id": 188
+  "id": 145
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Love this question! you're on the right track, and let me illuminate the underlying intricacies and streamline everything.",
-  "id": 189
+  "id": 146
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, brilliant question, and let's unpack this step by step — it's a real game-changer.",
-  "id": 190
+  "id": 147
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "Honestly, this is a fantastic approach, and there are several crucial factors here for a seamless experience.",
-  "id": 191
+  "id": 148
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "To be honest, this is a fantastic approach, and let's unpack this step by step — it's a real game-changer.",
-  "id": 192
+  "id": 149
  },
  {
   "label": "ai",
   "source": "assistant-register-gen",
   "text": "I'd be happy to help — you're on the right track, and this is a pivotal, transformative shift which is absolutely crucial.",
-  "id": 193
+  "id": 150
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The failure is on line 42: the index was stale. Fixed in one line.",
-  "id": 194
+  "id": 151
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The error is in the cache layer: the embedding can't separate those classes. Fixed in one line.",
-  "id": 195
+  "id": 152
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the lock was released too early, not what you assumed. I added a regression test.",
-  "id": 196
+  "id": 153
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is on line 42: the lock was released too early. No further changes needed.",
-  "id": 197
+  "id": 154
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because an off-by-one in the slice. Fixed in one line.",
-  "id": 198
+  "id": 155
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The leak is in the retry loop: the embedding can't separate those classes. Reverted and re-ran.",
-  "id": 199
+  "id": 156
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The crash is in the cache layer: an off-by-one in the slice. I added a regression test.",
-  "id": 200
+  "id": 157
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the cache layer: an off-by-one in the slice. Tests pass now.",
-  "id": 201
+  "id": 158
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the config key is wrong. Tests pass now.",
-  "id": 202
+  "id": 159
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the index was stale, not what you assumed. I added a regression test.",
-  "id": 203
+  "id": 160
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the file wasn't read first. Tests pass now.",
-  "id": 204
+  "id": 161
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The timeout is on line 42: a missing await. Backfilled in batches of 500.",
-  "id": 205
+  "id": 162
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — an off-by-one in the slice, not what you assumed. Backfilled in batches of 500.",
-  "id": 206
+  "id": 163
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the lock was released too early. I added a regression test.",
-  "id": 207
+  "id": 164
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The timeout is in the retry loop: the index was stale. No further changes needed.",
-  "id": 208
+  "id": 165
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The regression is in the writer thread: the index was stale. Fixed in one line.",
-  "id": 209
+  "id": 166
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The regression is in the retry loop: the lock was released too early. Reverted and re-ran.",
-  "id": 210
+  "id": 167
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the lock was released too early, not what you assumed. No further changes needed.",
-  "id": 211
+  "id": 168
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — a missing await, not what you assumed. Fixed in one line.",
-  "id": 212
+  "id": 169
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the lock was released too early. Reverted and re-ran.",
-  "id": 213
+  "id": 170
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The mismatch is in the migration: an off-by-one in the slice. No further changes needed.",
-  "id": 214
+  "id": 171
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The mismatch is in the token handler: a missing await. Reverted and re-ran.",
-  "id": 215
+  "id": 172
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the auth middleware: the lock was released too early. Backfilled in batches of 500.",
-  "id": 216
+  "id": 173
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The error is in the writer thread: the config key is wrong. Reverted and re-ran.",
-  "id": 217
+  "id": 174
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the parser: the config key is wrong. Tests pass now.",
-  "id": 218
+  "id": 175
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the index was stale. Tests pass now.",
-  "id": 219
+  "id": 176
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the token handler: an off-by-one in the slice. Added a lock.",
-  "id": 220
+  "id": 177
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the loop never resets the counter, not what you assumed. Fixed in one line.",
-  "id": 221
+  "id": 178
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The timeout is in the retry loop: the file wasn't read first. Read the file, then edit.",
-  "id": 222
+  "id": 179
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the auth middleware: the lock was released too early. Tests pass now.",
-  "id": 223
+  "id": 180
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the loop never resets the counter. Tests pass now.",
-  "id": 224
+  "id": 181
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the config key is wrong. Read the file, then edit.",
-  "id": 225
+  "id": 182
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the migration: the embedding can't separate those classes. Tests pass now.",
-  "id": 226
+  "id": 183
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The crash is in the writer thread: the lock was released too early. Read the file, then edit.",
-  "id": 227
+  "id": 184
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The regression is in the migration: an off-by-one in the slice. Read the file, then edit.",
-  "id": 228
+  "id": 185
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because a missing await. No further changes needed.",
-  "id": 229
+  "id": 186
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the loop never resets the counter. No further changes needed.",
-  "id": 230
+  "id": 187
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the cache layer: a missing await. Fixed in one line.",
-  "id": 231
+  "id": 188
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The mismatch is on line 42: the embedding can't separate those classes. I added a regression test.",
-  "id": 232
+  "id": 189
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the loop never resets the counter. Read the file, then edit.",
-  "id": 233
+  "id": 190
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The crash is in the retry loop: the index was stale. No further changes needed.",
-  "id": 234
+  "id": 191
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The regression is in the auth middleware: an off-by-one in the slice. No further changes needed.",
-  "id": 235
+  "id": 192
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the lock was released too early. Added a lock.",
-  "id": 236
+  "id": 193
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the lock was released too early. Backfilled in batches of 500.",
-  "id": 237
+  "id": 194
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — an off-by-one in the slice, not what you assumed. No further changes needed.",
-  "id": 238
+  "id": 195
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the index was stale. Backfilled in batches of 500.",
-  "id": 239
+  "id": 196
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the config key is wrong. No further changes needed.",
-  "id": 240
+  "id": 197
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The error is in the auth middleware: the embedding can't separate those classes. No further changes needed.",
-  "id": 241
+  "id": 198
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the lock was released too early. Read the file, then edit.",
-  "id": 242
+  "id": 199
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the file wasn't read first. I added a regression test.",
-  "id": 243
+  "id": 200
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the loop never resets the counter, not what you assumed. Reverted and re-ran.",
-  "id": 244
+  "id": 201
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The error is in the retry loop: a missing await. Fixed in one line.",
-  "id": 245
+  "id": 202
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The mismatch is in the retry loop: the embedding can't separate those classes. I added a regression test.",
-  "id": 246
+  "id": 203
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The leak is in the writer thread: the file wasn't read first. Tests pass now.",
-  "id": 247
+  "id": 204
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The crash is in the writer thread: the loop never resets the counter. Backfilled in batches of 500.",
-  "id": 248
+  "id": 205
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the index was stale, not what you assumed. Fixed in one line.",
-  "id": 249
+  "id": 206
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because an off-by-one in the slice. Read the file, then edit.",
-  "id": 250
+  "id": 207
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because a missing await. Reverted and re-ran.",
-  "id": 251
+  "id": 208
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the auth middleware: the embedding can't separate those classes. Reverted and re-ran.",
-  "id": 252
+  "id": 209
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the embedding can't separate those classes. I added a regression test.",
-  "id": 253
+  "id": 210
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the writer thread: the index was stale. No further changes needed.",
-  "id": 254
+  "id": 211
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The timeout is in the auth middleware: the lock was released too early. Fixed in one line.",
-  "id": 255
+  "id": 212
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because a missing await. Fixed in one line.",
-  "id": 256
+  "id": 213
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — a missing await, not what you assumed. I added a regression test.",
-  "id": 257
+  "id": 214
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the embedding can't separate those classes. Tests pass now.",
-  "id": 258
+  "id": 215
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the embedding can't separate those classes. Reverted and re-ran.",
-  "id": 259
+  "id": 216
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The failure is in the auth middleware: a missing await. Reverted and re-ran.",
-  "id": 260
+  "id": 217
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — an off-by-one in the slice, not what you assumed. Fixed in one line.",
-  "id": 261
+  "id": 218
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the file wasn't read first. Fixed in one line.",
-  "id": 262
+  "id": 219
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the config key is wrong. Fixed in one line.",
-  "id": 263
+  "id": 220
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the config key is wrong, not what you assumed. Added a lock.",
-  "id": 264
+  "id": 221
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the file wasn't read first, not what you assumed. Reverted and re-ran.",
-  "id": 265
+  "id": 222
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The error is on line 42: the index was stale. Reverted and re-ran.",
-  "id": 266
+  "id": 223
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — a missing await, not what you assumed. Backfilled in batches of 500.",
-  "id": 267
+  "id": 224
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the cache layer: the file wasn't read first. Fixed in one line.",
-  "id": 268
+  "id": 225
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the embedding can't separate those classes. No further changes needed.",
-  "id": 269
+  "id": 226
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The crash is in the writer thread: the config key is wrong. Backfilled in batches of 500.",
-  "id": 270
+  "id": 227
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the index was stale. Read the file, then edit.",
-  "id": 271
+  "id": 228
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The error is in the parser: a missing await. Reverted and re-ran.",
-  "id": 272
+  "id": 229
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The mismatch is in the cache layer: the loop never resets the counter. I added a regression test.",
-  "id": 273
+  "id": 230
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The mismatch is in the token handler: the index was stale. Read the file, then edit.",
-  "id": 274
+  "id": 231
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the loop never resets the counter. Reverted and re-ran.",
-  "id": 275
+  "id": 232
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the file wasn't read first, not what you assumed. No further changes needed.",
-  "id": 276
+  "id": 233
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the config key is wrong. I added a regression test.",
-  "id": 277
+  "id": 234
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — a missing await, not what you assumed. Added a lock.",
-  "id": 278
+  "id": 235
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The crash is on line 42: the config key is wrong. Added a lock.",
-  "id": 279
+  "id": 236
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because an off-by-one in the slice. Reverted and re-ran.",
-  "id": 280
+  "id": 237
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the embedding can't separate those classes. Added a lock.",
-  "id": 281
+  "id": 238
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the cache layer: an off-by-one in the slice. Added a lock.",
-  "id": 282
+  "id": 239
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the file wasn't read first, not what you assumed. Fixed in one line.",
-  "id": 283
+  "id": 240
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the embedding can't separate those classes, not what you assumed. Backfilled in batches of 500.",
-  "id": 284
+  "id": 241
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The error is in the token handler: the embedding can't separate those classes. Reverted and re-ran.",
-  "id": 285
+  "id": 242
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the file wasn't read first. Added a lock.",
-  "id": 286
+  "id": 243
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the file wasn't read first. No further changes needed.",
-  "id": 287
+  "id": 244
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The regression is in the writer thread: the config key is wrong. No further changes needed.",
-  "id": 288
+  "id": 245
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is on line 42: an off-by-one in the slice. No further changes needed.",
-  "id": 289
+  "id": 246
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The timeout is in the token handler: an off-by-one in the slice. Reverted and re-ran.",
-  "id": 290
+  "id": 247
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The error is on line 42: the lock was released too early. No further changes needed.",
-  "id": 291
+  "id": 248
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the file wasn't read first. Reverted and re-ran.",
-  "id": 292
+  "id": 249
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the config key is wrong, not what you assumed. Tests pass now.",
-  "id": 293
+  "id": 250
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The mismatch is in the cache layer: an off-by-one in the slice. Fixed in one line.",
-  "id": 294
+  "id": 251
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — an off-by-one in the slice, not what you assumed. Reverted and re-ran.",
-  "id": 295
+  "id": 252
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The timeout is in the auth middleware: a missing await. Reverted and re-ran.",
-  "id": 296
+  "id": 253
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The error is in the writer thread: the file wasn't read first. Reverted and re-ran.",
-  "id": 297
+  "id": 254
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the lock was released too early. Fixed in one line.",
-  "id": 298
+  "id": 255
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the embedding can't separate those classes, not what you assumed. Reverted and re-ran.",
-  "id": 299
+  "id": 256
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The failure is in the writer thread: the index was stale. No further changes needed.",
-  "id": 300
+  "id": 257
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — the index was stale, not what you assumed. Reverted and re-ran.",
-  "id": 301
+  "id": 258
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because an off-by-one in the slice. Backfilled in batches of 500.",
-  "id": 302
+  "id": 259
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The regression is in the cache layer: an off-by-one in the slice. Added a lock.",
-  "id": 303
+  "id": 260
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The failure is in the retry loop: a missing await. Read the file, then edit.",
-  "id": 304
+  "id": 261
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is in the parser: the embedding can't separate those classes. No further changes needed.",
-  "id": 305
+  "id": 262
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "No — an off-by-one in the slice, not what you assumed. Tests pass now.",
-  "id": 306
+  "id": 263
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The leak is in the auth middleware: the loop never resets the counter. Reverted and re-ran.",
-  "id": 307
+  "id": 264
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The bug is on line 42: a missing await. Fixed in one line.",
-  "id": 308
+  "id": 265
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the config key is wrong. Added a lock.",
-  "id": 309
+  "id": 266
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the config key is wrong. Reverted and re-ran.",
-  "id": 310
+  "id": 267
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "It failed because the index was stale. I added a regression test.",
-  "id": 311
+  "id": 268
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The leak is in the parser: the loop never resets the counter. Backfilled in batches of 500.",
-  "id": 312
+  "id": 269
  },
  {
   "label": "human",
   "source": "assistant-direct-gen",
   "text": "The timeout is in the auth middleware: the index was stale. No further changes needed.",
-  "id": 313
+  "id": 270
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Honestly, the failing test isn't flaky; the real issue is a shared fixture mutated across cases, so honestly the retry you added just masks it.",
-  "id": 314
+  "id": 271
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Look, the CPU spike isn't your loop — honestly the real cost is the synchronous JSON parse on the main thread, and that's the thing actually blocking.",
-  "id": 315
+  "id": 272
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "To be honest, the 512 GB sparse file isn't eating disk; it's using 75 MB for real, so honestly that ranking by ls is misleading and du tells the truth.",
-  "id": 316
+  "id": 273
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Honestly, the latency isn't the database — the real offender is the N+1 in the serializer firing 200 queries, and honestly the connection pool is fine.",
-  "id": 317
+  "id": 274
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Frankly, that 14 GB model checkpoint isn't the duplicate to worry about; the real waste is two identical CoreAI copies, and frankly only one is loaded.",
-  "id": 318
+  "id": 275
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Honestly, the build isn't slow because of TypeScript — the real bottleneck is re-bundling on every save, so honestly incremental mode makes it a non-issue.",
-  "id": 319
+  "id": 276
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "To be honest, the memory leak isn't in your code; the real source is the event listener never removed on unmount, and honestly the profiler points right at it.",
-  "id": 320
+  "id": 277
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Honestly, the disk-full alert is misleading — the real consumer is 40 GB of orphaned journal logs, and honestly rotating them clears it instantly.",
-  "id": 321
+  "id": 278
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Frankly, the dropped packets aren't the NIC; the real issue is the undersized socket buffer, so frankly tuning rmem is what actually helps.",
-  "id": 322
+  "id": 279
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Honestly, the 5.5 GB download isn't useful — it's a dead incomplete LFS pull, so honestly it's safe to delete and reclaim the space.",
-  "id": 323
+  "id": 280
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "To be honest, the high load average isn't CPU-bound work; the real cause is iowait from the failing disk, and honestly smartctl confirms it.",
-  "id": 324
+  "id": 281
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Honestly, the OOM isn't the model weights — the real spike is the un-batched preprocessing holding the whole dataset, and honestly streaming fixes it.",
-  "id": 325
+  "id": 282
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Look, the 100% GPU isn't training — honestly it's a zombie process from the last crashed run, and that's what's actually pinning the card.",
-  "id": 326
+  "id": 283
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Frankly, the slow boot isn't the kernel; the real delay is a 90-second systemd unit waiting on a dead mount, and frankly masking it is the fix.",
-  "id": 327
+  "id": 284
  },
  {
   "label": "ai",
   "source": "hedge-technical",
   "text": "Honestly, the cache misses aren't your keys — the real problem is the TTL set to one second, so honestly nothing ever stays warm.",
-  "id": 328
+  "id": 285
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "The 8 GB is misleading; ls shows logical size. du says 75 MB. Rank by du.",
-  "id": 329
+  "id": 286
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "Slow query is the missing index on created_at, not the join. Add it.",
-  "id": 330
+  "id": 287
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "node_modules is 500 MB; the real bloat is 2.1 GB of Docker layers. Prune them.",
-  "id": 331
+  "id": 288
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "The test fails because a shared fixture is mutated across cases. The retry masks it.",
-  "id": 332
+  "id": 289
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "CPU spike is the synchronous JSON parse on the main thread. Move it off-thread.",
-  "id": 333
+  "id": 290
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "Two identical 14 GB CoreAI model copies; only one is loaded. Delete the other.",
-  "id": 334
+  "id": 291
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "Latency is an N+1 in the serializer: 200 queries. The pool is fine.",
-  "id": 335
+  "id": 292
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "Build is slow from re-bundling on every save. Enable incremental mode.",
-  "id": 336
+  "id": 293
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "Leak is an event listener not removed on unmount. The profiler shows it.",
-  "id": 337
+  "id": 294
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "40 GB of orphaned journal logs filled the disk. Rotate them.",
-  "id": 338
+  "id": 295
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "Dropped packets are an undersized socket buffer. Increase rmem.",
-  "id": 339
+  "id": 296
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "The 5.5 GB file is a dead incomplete LFS download. Safe to delete.",
-  "id": 340
+  "id": 297
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "High load is iowait from a failing disk. smartctl confirms it.",
-  "id": 341
+  "id": 298
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "OOM is un-batched preprocessing holding the dataset. Stream it.",
-  "id": 342
+  "id": 299
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "GPU is pinned by a zombie process from the last crashed run. Kill it.",
-  "id": 343
+  "id": 300
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "Slow boot is a systemd unit waiting 90s on a dead mount. Mask it.",
-  "id": 344
+  "id": 301
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "Cache TTL is one second, so nothing stays warm. Raise it.",
-  "id": 345
+  "id": 302
  },
  {
   "label": "human",
   "source": "blunt-technical-2",
   "text": "The 512 GB sparse file uses 75 MB real. Not the problem.",
-  "id": 346
+  "id": 303
  }
 ]

@@ -28,8 +28,7 @@ Exit 2 means flagged, 0 means not. Bad or empty input exits 0.
 python3 test/verify_sem.py
 ```
 
-Runs every corpus item through the binary and prints precision/recall. Last run was 0.94/0.99
-on 347 examples. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split.
+Runs every corpus item through the binary and prints precision/recall. Last run was 0.99/1.00 on 304 examples. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split.
 
 ## layout
 
@@ -51,7 +50,3 @@ python3 add.py human "a normal human sentence"
 
 It appends the example and rebuilds. Add a bunch and it gets better at the kinds you give it.
 
-## note
-
-The corpus rows tagged `examples.md/*` came from github.com/kierstenicy452/anti-ai-writing.
-Attribute or remove them before making this public.
