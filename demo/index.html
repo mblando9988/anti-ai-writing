@@ -1,0 +1,56 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>anti-ai-writing — live demo</title>
+<style>
+  :root{color-scheme:dark}
+  body{font:16px/1.5 -apple-system,Segoe UI,sans-serif;background:#0d1117;color:#e6edf3;margin:0;padding:40px;display:flex;justify-content:center}
+  .wrap{max-width:720px;width:100%}
+  h1{font-size:22px;margin:0 0 4px} .sub{color:#8b949e;margin:0 0 24px;font-size:14px}
+  textarea{width:100%;box-sizing:border-box;min-height:120px;background:#161b22;color:#e6edf3;border:2px solid #30363d;border-radius:10px;padding:14px;font:16px/1.5 inherit;resize:vertical;transition:border-color .15s}
+  textarea:focus{outline:none;border-color:#58a6ff}
+  .verdict{margin:18px 0;padding:18px;border-radius:10px;font-size:20px;font-weight:600;display:flex;align-items:center;gap:12px;background:#161b22;border:2px solid #30363d;transition:all .15s}
+  .flag{border-color:#f85149;background:#2d1214;color:#ff7b72}
+  .ok{border-color:#3fb950;background:#11251a;color:#56d364}
+  .reason{font-size:13px;color:#8b949e;font-weight:400;margin-top:4px}
+  .near{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+  .card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px;font-size:13px}
+  .card .lbl{font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+  .ai .lbl{color:#ff7b72} .hu .lbl{color:#56d364}
+  .cos{color:#8b949e;float:right;font-variant-numeric:tabular-nums}
+  .ex{margin-top:18px} .ex b{color:#8b949e;font-size:12px} .chip{display:inline-block;margin:4px 4px 0 0;padding:5px 10px;background:#161b22;border:1px solid #30363d;border-radius:14px;font-size:12px;cursor:pointer}
+  .chip:hover{border-color:#58a6ff}
+</style></head><body><div class="wrap">
+  <h1>anti-ai-writing</h1>
+  <p class="sub">Type or paste a sentence. It embeds your text and compares it to a labeled corpus of AI vs human writing. Red = reads AI, green = reads human.</p>
+  <textarea id="t" placeholder="Type a sentence…"></textarea>
+  <div id="v" class="verdict">…<div class="reason" id="r"></div></div>
+  <div class="near"><div class="card ai"><div class="lbl">nearest AI example <span class="cos" id="ca"></span></div><div id="ta"></div></div>
+  <div class="card hu"><div class="lbl">nearest human example <span class="cos" id="ch"></span></div><div id="th"></div></div></div>
+  <div class="ex"><b>try one:</b><br>
+    <span class="chip">Honestly, that's a fantastic question — let me delve into the nuances to truly empower you.</span>
+    <span class="chip">I'm thrilled to announce our groundbreaking platform that unlocks your full potential.</span>
+    <span class="chip">You're absolutely right, your instinct here is brilliant and exactly on target.</span>
+    <span class="chip">The bug is a null pointer on line 88. Add a guard before the deref.</span>
+    <span class="chip">Good question, but the data doesn't support that. The latency is the disk.</span>
+  </div>
+</div>
+<script>
+const t=document.getElementById('t'),v=document.getElementById('v'),r=document.getElementById('r');
+let timer;
+function render(d){
+  v.className='verdict '+(d.flagged?'flag':'ok');
+  v.firstChild.textContent=d.flagged?'⛔  reads AI-generated':'✅  reads human';
+  r.textContent=d.reason||'';
+  document.getElementById('ta').textContent=d.near_ai?'"'+d.near_ai[1]+'"':'';
+  document.getElementById('th').textContent=d.near_human?'"'+d.near_human[1]+'"':'';
+  document.getElementById('ca').textContent=d.near_ai?d.near_ai[0].toFixed(2):'';
+  document.getElementById('ch').textContent=d.near_human?d.near_human[0].toFixed(2):'';
+}
+async function go(){
+  const text=t.value.trim();
+  if(text.split(/\s+/).length<6){v.className='verdict';v.firstChild.textContent='… (needs 6+ words)';r.textContent='';return;}
+  const res=await fetch('/check',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({text})});
+  render(await res.json());
+}
+t.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(go,350);});
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{t.value=c.textContent;go();});
+</script></body></html>

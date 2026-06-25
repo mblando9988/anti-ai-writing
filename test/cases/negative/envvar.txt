@@ -1,0 +1,1 @@
+It works now. The env var was spelled wrong in the compose file.

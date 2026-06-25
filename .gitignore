@@ -8,3 +8,4 @@ bin/anti_ai_sem
 # python
 __pycache__/
 *.pyc
+bin/embed_one

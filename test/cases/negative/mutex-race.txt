@@ -1,0 +1,1 @@
+yeah that race is real, the mutex unlocks too early. move it after the write.

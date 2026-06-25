@@ -1,0 +1,1 @@
+I tried bumping the pool to 100 but it didn't change the 503s, so it's not pool exhaustion.

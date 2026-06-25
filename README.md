@@ -28,7 +28,23 @@ Exit 2 means flagged, 0 means not. Bad or empty input exits 0.
 python3 test/verify_sem.py
 ```
 
-Runs every corpus item through the binary and prints precision/recall. Last run was 0.99/0.96 on 431 examples. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split.
+Runs every corpus item through the binary and prints precision/recall. Last run was 0.99/0.96 on 431 examples. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split. `test/eval.py` runs the case files under `test/cases/` and reports false positives and negatives.
+
+## demo
+
+Two ways to see it decide, live:
+
+```
+# terminal UI: type a sentence, Enter to check, Ctrl-C to quit
+python3 demo/tui.py
+
+# web UI at http://127.0.0.1:8778
+python3 demo/server.py
+```
+
+Both show the verdict, the score (embedding margin + positional nudge), and the
+nearest AI and human examples it matched. They need `bin/embed_one` built:
+`swiftc -O src/embed_one.swift -o bin/embed_one`.
 
 ## layout
 

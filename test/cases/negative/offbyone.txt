@@ -1,0 +1,1 @@
+Found it. The off-by-one is in the slice bound, should be len minus 1 not len.

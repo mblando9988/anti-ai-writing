@@ -1,0 +1,1 @@
+Moreover, the performance impact is significant and we should call that out in the report.
