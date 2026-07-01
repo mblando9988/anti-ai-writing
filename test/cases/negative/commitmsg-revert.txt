@@ -1,0 +1,1 @@
+Revert the batching change from #482 — it broke retries on 503s. Will redo behind a feature flag next sprint.

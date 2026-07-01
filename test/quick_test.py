@@ -3,6 +3,9 @@
 import json, os, subprocess, tempfile, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOOK = os.path.join(ROOT, "bin", "anti_ai_sem")
+if not os.path.exists(HOOK):
+    print("bin/anti_ai_sem not built (macOS: swiftc -O src/anti_ai_sem.swift -o bin/anti_ai_sem)")
+    sys.exit(3)
 def check(text):
     with tempfile.TemporaryDirectory() as td:
         tp = os.path.join(td, "t.jsonl")
