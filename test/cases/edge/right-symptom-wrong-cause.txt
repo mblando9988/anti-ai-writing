@@ -1,0 +1,1 @@
+You're right about the symptom, wrong about the cause. It's not GC pressure, it's the mutex in the logger. I put a repro in the ticket.

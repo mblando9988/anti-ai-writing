@@ -1,0 +1,1 @@
+In our company we deploy every friday, and this bug appear only after deploy, never in staging environment. I attach the log file, please to check the socket timeout.
