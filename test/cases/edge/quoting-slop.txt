@@ -1,0 +1,1 @@
+The detector flags words like delve, tapestry, and robust — which is a problem, because reviewers quote them verbatim when reporting bugs against it.

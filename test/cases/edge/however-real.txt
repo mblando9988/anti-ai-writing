@@ -1,0 +1,1 @@
+The benchmark is misleading. However you slice it, the p99 numbers come from the cold cache, not the query planner. Rerun with a warm cache and the difference disappears.

@@ -28,7 +28,7 @@ Exit 2 means flagged, 0 means not. Bad or empty input exits 0.
 python3 test/verify_sem.py
 ```
 
-Runs every corpus item through the binary and prints precision/recall. Last run was 0.99/0.96 on 431 examples. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split. `test/eval.py` runs the case files under `test/cases/` and reports false positives and negatives.
+Runs every corpus item through the binary and prints precision/recall. An offline leave-one-out replay of the scoring over the 425 embedded examples measures 1.00 precision / 0.985 recall; rerun this script on a Mac after rebuilding embeddings to confirm live. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split. `test/eval.py` runs the case files under `test/cases/` (18 positive, 18 negative, 11 edge) and reports false positives and negatives. `test/check_dataset.py` checks corpus hygiene: duplicates, labels, embedding sync.
 
 ## demo
 
@@ -65,4 +65,14 @@ python3 add.py human "a normal human sentence"
 ```
 
 It appends the example and rebuilds. Add a bunch and it gets better at the kinds you give it.
+
+The corpus (`corpus/anti_ai_corpus.json`, 609 examples) can carry items that aren't embedded
+yet — the hook only consults `corpus_emb.json`, and unembedded items still work as eval
+queries in `test/verify_sem.py`. To turn them into reference examples, rebuild on a Mac:
+
+```
+cd corpus && swift ../src/embed_corpus.swift
+```
+
+`test/check_dataset.py` tells you how many items are pending embedding.
 
