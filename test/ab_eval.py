@@ -3,11 +3,13 @@ ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 corpus=json.load(open(os.path.join(ROOT,"corpus","anti_ai_corpus.json")))
 emb=json.load(open(os.path.join(ROOT,"corpus","corpus_emb.json")))
 vec={e["text"]:e["v"] for e in emb}
-# frozen split: TEST = hand-authored/real sources; DEV(reference for B) = templated-generated.
-REAL={"examples.md/before","examples.md/after","assistant-register","assistant-direct",
-      "clean-dev","slop-seed","hedge-technical","blunt-technical-2"}
-test=[c for c in corpus if c["source"] in REAL and c["text"] in vec]
-dev =[c for c in corpus if c["source"] not in REAL and c["text"] in vec]
+# split: TEST = hand-authored/real sources; DEV(reference for B) = templated-generated.
+# derived from the source name (templated sources end in "-gen") instead of a frozen
+# name list — the old list named sources that no longer exist and drifted silently.
+test=[c for c in corpus if not c["source"].endswith("-gen") and c["text"] in vec]
+dev =[c for c in corpus if c["source"].endswith("-gen") and c["text"] in vec]
+if not test or not dev:
+    raise SystemExit(f"bad split: test={len(test)} dev={len(dev)} — check corpus source names")
 def metrics(items,pred):
     TP=FP=FN=TN=0
     for c in items:
@@ -28,8 +30,11 @@ def A(c):
     return slop>=2 or bool(HEDGE.match(c["text"])) or (emdash and slop>=1) or (tri and slop>=1)
 # --- System B: semantic k-NN, reference = DEV only (honest held-out) ---
 def cos(a,b):
-    d=sum(x*y for x,y in zip(a,b)); 
-    return d  # vectors are L2-normalized already
+    # the stored vectors are mean-pooled, NOT unit-length (norms ~2.5), so a bare
+    # dot product ranks by magnitude, not similarity — normalize properly
+    d=sum(x*y for x,y in zip(a,b))
+    na=math.sqrt(sum(x*x for x in a)); nb=math.sqrt(sum(y*y for y in b))
+    return d/(na*nb) if na and nb else 0.0
 def B(c):
     q=vec[c["text"]]
     sims=sorted(((cos(q,vec[d["text"]]),d["label"]) for d in dev),reverse=True)[:5]
