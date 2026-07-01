@@ -48,7 +48,7 @@ func lastAssistantText(_ p: String) -> String {
         guard let d = line.data(using: .utf8), let o = (try? JSONSerialization.jsonObject(with: d)) as? [String: Any] else { continue }
         let m = o["message"] as? [String: Any]
         guard (o["type"] as? String) == "assistant" || (m?["role"] as? String) == "assistant" else { continue }
-        if let s = m?["content"] as? String { last = s }
+        if let s = m?["content"] as? String, !s.isEmpty { last = s }
         else if let a = m?["content"] as? [Any] {
             let t = a.compactMap { ($0 as? [String: Any]).flatMap { ($0["type"] as? String) == "text" ? $0["text"] as? String : nil } }.joined(separator: " ")
             if !t.isEmpty { last = t }
@@ -62,7 +62,7 @@ if let tp = obj["transcript_path"] as? String { text = lastAssistantText(tp) }
 if text.isEmpty, let t = obj["_text"] as? String { text = t }
 text = text.trimmingCharacters(in: .whitespacesAndNewlines)
 if text.isEmpty { allow("empty turn") }
-if text.split(whereSeparator: { $0 == " " || $0 == "\n" }).count < 6 { allow("too short to judge style") }
+if text.split(whereSeparator: { $0.isWhitespace }).count < 6 { allow("too short to judge style") }
 
 guard let emb = try? NLContextualEmbedding(language: .english) else { allow("no embedder") }
 try? emb.load()
@@ -100,16 +100,18 @@ let MARGIN: Double = {
 }()
 
 // Structural detectors — a passage-level corroborator (never a single word).
+// Curly quotes are normalized first so "you're" can't evade the apostrophe'd patterns.
+let matchText = text.replacingOccurrences(of: "\u{2019}", with: "'").replacingOccurrences(of: "\u{2018}", with: "'")
 func rx(_ p: String) -> Bool { (try? NSRegularExpression(pattern: p, options: [.caseInsensitive]))
-    .map { $0.firstMatch(in: text, range: NSRange(text.startIndex..., in: text)) != nil } ?? false }
-let lower = text.lowercased()
+    .map { $0.firstMatch(in: matchText, range: NSRange(matchText.startIndex..., in: matchText)) != nil } ?? false }
+let lower = matchText.lowercased()
 let formulaic = ["in today'?s","more than ever","it'?s worth noting","it is worth noting",
  "let me break (this|it) down","let'?s dive (in|right in)","when it comes to","the truth is",
  "let me (unpack|walk you through)","unlock the (potential|power)","harness the power","a testament to",
  "thrilled to (announce|share)","i'?m (thrilled|excited|proud) to","fast[- ]paced","the power of",
  "embark on","navigate the complexities","furthermore","moreover","on a mission to","take your"]
 var struc: [String] = []
-if text.contains("—") || rx("\\s-\\s") { struc.append("em_dash") }
+if matchText.contains("—") || rx("\\s-\\s") { struc.append("em_dash") }
 if rx("\\b\\w+,\\s+\\w+,\\s+(and |or )?\\w+") { struc.append("rule_of_three") }
 if rx("not just .* but|it'?s not about .* it'?s about|it'?s not .*,\\s*it'?s") { struc.append("not_just_but") }
 if formulaic.contains(where: { rx($0) }) { struc.append("formulaic_transition") }
@@ -130,15 +132,23 @@ if hits.count >= 3 { struc.append("buzzword_stacking") }
 
 // Positional nudge: mean-pooling discards word order, so add it back as a small,
 // bounded adjustment. The embedding `margin` stays the base of the score.
-let opening = String(text.prefix(120)).lowercased()
-let openerPraise = rx("^\\W*(great|excellent|fantastic|brilliant|wonderful|amazing|perfect)\\s+(question|point|observation)") || opening.range(of: #"^\W*(honestly|frankly|absolutely|certainly|of course)\b"#, options: .regularExpression) != nil
+let opening = String(matchText.prefix(120)).lowercased()
+let openerPraise = rx(#"^\W*(great|excellent|fantastic|brilliant|wonderful|amazing|perfect)\s+(question|point|observation)"#) || opening.range(of: #"^\W*(honestly|frankly|absolutely|certainly|of course)\b"#, options: .regularExpression) != nil
 func anyRx(_ p: String) -> Bool { lower.range(of: p, options: .regularExpression) != nil }
-let validation = anyRx(#"your (theory|hypothesis|framing|instinct|intuition|perspective|premise) (is|sounds)|you raise (a )?(great|good|valid|important) point|completely (valid|understandable)|spot on|on the right track|you'?re (absolutely )?right"#)
+// "your theory is" alone matched "your theory is wrong" (a disagreement), and bare
+// "spot on" matched "spot online" / "a dark spot on the lens" — both need context.
+let validation = anyRx(#"your (theory|hypothesis|framing|instinct|intuition|perspective|premise) (is|sounds) (spot[- ]on|right|correct|valid|sound|compelling|fascinating|brilliant|insightful|astute|excellent|great|perceptive|sharp|exactly|precisely|completely|absolutely|genuinely|impressively|refreshingly|entirely)|you raise (a )?(great|good|valid|important) point|completely (valid|understandable)|\b(is|are|sounds|you'?re|that'?s) spot[- ]on\b|on the right track|you'?re (absolutely )?right"#)
 // only negation / self-correction markers — substance markers like "on line N"
 // or "I don't know" are too easy to prepend to slop, so they're excluded.
-let disagree = anyRx(#"\bhowever\b|\bin fact\b|not (quite|the case|true|wrong|right|the|outside|inside)\b|i'?d push back|the (data|evidence) (does|doesn'?t|suggest|show)|the opposite|but no\b|but not\b|but the\b|i misread|absolutely not|absolutely no\b"#)
+// "not wrong" is deliberately not a disagreement marker: "you're not wrong" is
+// validation phrased as a negation and was farming this redemption.
+let disagree = anyRx(#"\bhowever\b|\bin fact\b|not (quite|the case|true|right|the|outside|inside)\b|i'?d push back|the (data|evidence) (does|doesn'?t|suggest|show)|the opposite|but no\b|but not\b|but the\b|i misread|absolutely not|absolutely no\b"#)
+// formulaic assistant-forward opener ("let me delineate…") — positional like
+// opener-praise; the verb list is deliberately narrow ("let me know" must not match)
+let openerAssist = anyRx(#"^\W*let me (delineate|lay out|unpack|walk you through|break (this|it) down|take a moment)|^\W*let'?s (dive|unpack|break (this|it) down|take a step back)"#)
 var nudge = 0.0, why: [String] = []
 if openerPraise { nudge += 0.05; why.append("opener-praise") }
+if openerAssist { nudge += 0.03; why.append("assistant-opener") }
 if validation   { nudge += 0.03; why.append("validation") }
 if disagree     { nudge -= 0.06; why.append("disagreement(redeems)") }
 let score = margin + nudge

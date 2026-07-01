@@ -13,7 +13,16 @@ func vec(_ s: String) -> [Double]? {
     return n==0 ? nil : sum.map{ $0/Double(n) }
 }
 var out:[[String:Any]]=[]
-for it in items { if let v=vec(it.text) { out.append(["label":it.label,"text":it.text,"v":v]) } }
+for it in items {
+    if let v=vec(it.text) { out.append(["label":it.label,"text":it.text,"v":v]) }
+    else { FileHandle.standardError.write(Data("failed to embed, dropped: \(it.text.prefix(70))\n".utf8)) }
+}
+// a mostly-failed run (e.g. the English model asset isn't downloaded) must not
+// overwrite the good embeddings — that would silently disable the detector
+if out.isEmpty || out.count * 2 < items.count {
+    FileHandle.standardError.write(Data("embedded only \(out.count)/\(items.count) — refusing to overwrite corpus_emb.json. Is the English contextual-embedding asset downloaded?\n".utf8))
+    exit(1)
+}
 let d = try! JSONSerialization.data(withJSONObject: out)
 try! d.write(to: URL(fileURLWithPath: "corpus_emb.json"))
 print("embedded \(out.count)/\(items.count) -> corpus_emb.json")

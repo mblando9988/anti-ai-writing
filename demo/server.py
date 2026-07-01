@@ -23,10 +23,25 @@ def check(text):
 class H(http.server.SimpleHTTPRequestHandler):
     def __init__(self,*a,**k): super().__init__(*a,directory=os.path.join(ROOT,"demo"),**k)
     def do_POST(self):
-        n=int(self.headers.get("content-length",0)); body=json.loads(self.rfile.read(n) or b"{}")
-        out=json.dumps(check(body.get("text",""))).encode()
+        # oversized or unparseable requests get an error status — never a verdict
+        # on text the hook didn't actually see
+        try: n=int(self.headers.get("content-length",0) or 0)
+        except ValueError: n=-1
+        if n<0 or n>1_000_000:
+            self.send_response(413 if n>1_000_000 else 400); self.end_headers(); return
+        try: body=json.loads(self.rfile.read(n) or b"{}")
+        except Exception:
+            self.send_response(400); self.end_headers(); return
+        t=body.get("text","") if isinstance(body,dict) else ""
+        out=json.dumps(check(t if isinstance(t,str) else "")).encode()
         self.send_response(200); self.send_header("content-type","application/json"); self.send_header("content-length",str(len(out))); self.end_headers(); self.wfile.write(out)
     def log_message(self,*a): pass
 if __name__=="__main__":
+    missing=[p for p in (EMB,HOOK) if not os.path.exists(p)]
+    if missing:
+        print("missing binaries:",", ".join(missing))
+        print("build them (macOS): swiftc -O src/anti_ai_sem.swift -o bin/anti_ai_sem"
+              " && swiftc -O src/embed_one.swift -o bin/embed_one")
+        raise SystemExit(3)
     with socketserver.TCPServer(("127.0.0.1",8778),H) as s:
         print("demo at http://127.0.0.1:8778"); s.serve_forever()

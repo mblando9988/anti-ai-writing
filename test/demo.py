@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 # Demo: show HOW the detector decides. For each sentence it prints the verdict,
 # the score, and the nearest AI and human example it matched against.
-import json, os, subprocess, tempfile, math
+import json, os, subprocess, tempfile, math, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EMB  = os.path.join(ROOT, "bin", "embed_one")
 HOOK = os.path.join(ROOT, "bin", "anti_ai_sem")
+missing = [p for p in (EMB, HOOK) if not os.path.exists(p)]
+if missing:
+    print("missing binaries:", ", ".join(missing))
+    print("build them (macOS): swiftc -O src/anti_ai_sem.swift -o bin/anti_ai_sem"
+          " && swiftc -O src/embed_one.swift -o bin/embed_one")
+    sys.exit(3)
 corpus = {r["text"]: r for r in json.load(open(os.path.join(ROOT, "corpus", "anti_ai_corpus.json")))}
 ref = json.load(open(os.path.join(ROOT, "corpus", "corpus_emb.json")))
 

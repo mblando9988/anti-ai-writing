@@ -2,6 +2,8 @@ import json,os,re,subprocess,tempfile,sys,time
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOOK=os.path.join(ROOT,"bin","anti_ai_sem")
 SRC=os.path.join(ROOT,"src","anti_ai_sem.swift")
+if not os.path.exists(HOOK):
+    print("bin/anti_ai_sem not built (macOS: swiftc -O src/anti_ai_sem.swift -o bin/anti_ai_sem)");sys.exit(3)
 CORPUS=json.load(open(os.path.join(ROOT,"corpus","anti_ai_corpus.json")))
 
 def anti_drift():
@@ -37,10 +39,13 @@ for c in CORPUS:
 prec=TP/(TP+FP) if TP+FP else 0; rec=TP/(TP+FN) if TP+FN else 0
 print(f"REAL HOOK over {len(CORPUS)} items in {time.time()-t0:.0f}s")
 print(f"TP={TP} FP={FP} FN={FN} TN={TN}  precision={prec:.3f} recall={rec:.3f}  (need >=0.90 / >=0.85)")
-a1=run(text="delve")!=2; a2=run(text="ensure the cache is enabled")!=2
+# note: these two are floor checks — 1 and 5 words never reach the classifier.
+# the "single buzzword in a real sentence still passes" property is covered by
+# the >=6-word delve-logs case in test/cases/edge/.
+a1=run(text="delve")==0; a2=run(text="ensure the cache is enabled")==0
 a3=run(raw=b"")==0; a4=run(raw=b"\xff not json {{{")==0
 fails=[]
-for n,ok in [("delve allows",a1),("'ensure the cache is enabled' allows",a2),("empty fail-open",a3),("garbage fail-open",a4)]:
+for n,ok in [("1-word input allows (6-word floor)",a1),("5-word input allows (6-word floor)",a2),("empty fail-open",a3),("garbage fail-open",a4)]:
     print(f"  [{'PASS' if ok else 'FAIL'}] {n}");  fails.append(n) if not ok else None
 print("-- false positives (human blocked) --")
 for c in fp[:10]: print(f"  FP {c['id']} [{c['source']}] {c['text'][:75]}")
