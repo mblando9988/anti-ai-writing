@@ -27,3 +27,5 @@ jobs:
         run: python3 test/backtest.py --portable
       - name: case eval (portable engine)
         run: HOOK="python3 src/anti_ai_sem.py" python3 test/eval.py
+      - name: verify (every corpus example through the real hook)
+        run: python3 test/verify_portable.py
