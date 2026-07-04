@@ -14,18 +14,32 @@
 # For that, build the binary on macOS and run test/verify_sem.py.
 #
 # Usage:
-#   python3 test/backtest.py            # metrics + sweeps + error listing
+#   python3 test/backtest.py            # apple engine: precomputed NLEmbedding vectors
+#   python3 test/backtest.py --portable # portable engine: src/anti_ai_sem.py, whole corpus
 #   python3 test/backtest.py --json out.json
 #   SR_MARGIN=0.03 python3 test/backtest.py
 #
-# Exits 0 when leave-one-out precision >= 0.99 and recall >= 0.95, else 1.
-import json, math, os, re, sys
+# Exits 0 when leave-one-out precision/recall clear the engine's gate, else 1.
+import importlib.util, json, math, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EMB = os.path.join(ROOT, "corpus", "corpus_emb.json")
 CORPUS = os.path.join(ROOT, "corpus", "anti_ai_corpus.json")
-K = 5
-GATE_P, GATE_R = 0.99, 0.95
+
+# the nudge and the portable embedder live in the hook itself — one source
+_spec = importlib.util.spec_from_file_location(
+    "anti_ai_sem", os.path.join(ROOT, "src", "anti_ai_sem.py"))
+_hook = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_hook)
+nudge = _hook.nudge
+
+# engine -> (k, default threshold, precision gate, recall gate, k sweep)
+# the portable engine's surface features trade a few recall points against the
+# semantic embedder; precision stays the non-negotiable part of the gate
+ENGINES = {
+    "apple":    (5,  0.02, 0.99, 0.95, (3, 5, 7, 9)),
+    "portable": (_hook.K, _hook.DEFAULT_MARGIN, 0.99, 0.92, (5, 9, 15, 21)),
+}
 
 try:
     import numpy as np
@@ -36,41 +50,6 @@ except ImportError:
 def word_count(text):
     # Swift: text.split(whereSeparator: { $0 == " " || $0 == "\n" }).count
     return len([w for w in re.split(r"[ \n]", text) if w])
-
-
-def nudge(text):
-    """The positional nudge from anti_ai_sem.swift, same regexes, same weights."""
-    lower = text.lower()
-    opening = text[:120].lower()
-    opener_praise = bool(re.match(
-        r"^\W*(great|excellent|fantastic|brilliant|wonderful|amazing|perfect)"
-        r"\s+(question|point|observation)", text, re.I)) or bool(re.match(
-        r"^\W*(honestly|frankly|absolutely|certainly|of course)\b", opening))
-    validation = bool(re.search(
-        r"your (theory|hypothesis|framing|instinct|intuition|perspective|premise) (is|sounds)"
-        r"|you raise (a )?(great|good|valid|important) point"
-        r"|completely (valid|understandable)|spot on|on the right track"
-        r"|you'?re (absolutely )?right", lower))
-    # "you're not wrong" is validation wearing a negation costume — it praises,
-    # it doesn't push back. Count it as validation and keep it away from the
-    # disagreement redemption below.
-    not_wrong = bool(re.search(r"you'?re not wrong|you are not wrong", lower))
-    if not_wrong:
-        validation = True
-    sans_not_wrong = re.sub(r"you'?re not wrong|you are not wrong", "", lower)
-    disagree = bool(re.search(
-        r"\bhowever\b|\bin fact\b|not (quite|the case|true|wrong|right|the|outside|inside)\b"
-        r"|i'?d push back|the (data|evidence) (does|doesn'?t|suggest|show)"
-        r"|the opposite|but no\b|but not\b|but the\b|i misread"
-        r"|absolutely not|absolutely no\b", sans_not_wrong))
-    n, why = 0.0, []
-    if opener_praise:
-        n += 0.05; why.append("opener-praise")
-    if validation:
-        n += 0.03; why.append("validation")
-    if disagree:
-        n -= 0.06; why.append("disagreement(redeems)")
-    return n, why
 
 
 def cosine_matrix(vs):
@@ -132,27 +111,40 @@ def main():
     json_out = None
     if "--json" in sys.argv:
         json_out = sys.argv[sys.argv.index("--json") + 1]
+    engine = "portable" if "--portable" in sys.argv else "apple"
+    K, default_thr, gate_p, gate_r, k_sweep = ENGINES[engine]
 
-    items = json.load(open(EMB))
-    thr = float(os.environ.get("SR_MARGIN", "0.02"))
+    if engine == "portable":
+        corpus = json.load(open(CORPUS))
+        items = [{"label": x["label"], "text": x["text"],
+                  "v": _hook.embed(x["text"])} for x in corpus]
+        pending = []
+    else:
+        items = json.load(open(EMB))
+    try:
+        thr = float(os.environ.get("SR_MARGIN", ""))
+    except ValueError:
+        thr = default_thr
     n_ai = sum(1 for x in items if x["label"] == "ai")
-    print(f"backtest over {len(items)} embedded examples "
+    print(f"backtest [{engine} engine] over {len(items)} examples "
           f"({n_ai} ai / {len(items) - n_ai} human), k={K}, threshold={thr}")
 
-    # corpus items that don't have embeddings yet (added but not re-embedded)
-    try:
-        corpus = json.load(open(CORPUS))
-        embedded = {x["text"] for x in items}
-        pending = [c for c in corpus if c["text"] not in embedded]
-        if pending:
-            print(f"note: {len(pending)} corpus examples have no embedding yet — "
-                  f"run `swift src/embed_corpus.swift` in corpus/ on macOS to include them")
-    except FileNotFoundError:
-        pending = []
+    if engine == "apple":
+        # corpus items that don't have embeddings yet (added but not re-embedded)
+        try:
+            corpus = json.load(open(CORPUS))
+            embedded = {x["text"] for x in items}
+            pending = [c for c in corpus if c["text"] not in embedded]
+            if pending:
+                print(f"note: {len(pending)} corpus examples have no embedding yet — "
+                      f"run `swift src/embed_corpus.swift` in corpus/ on macOS to include "
+                      f"them (the portable engine already sees the whole corpus)")
+        except FileNotFoundError:
+            pending = []
 
     sims = cosine_matrix([x["v"] for x in items])
     margins = margins_at_k(items, sims, K)
-    nudges = [nudge(x["text"])[0] for x in items]
+    nudges = [nudge(x["text"], engine)[0] for x in items]
     scores = [m + nd for m, nd in zip(margins, nudges)]
 
     base = metrics(items, scores, thr)
@@ -166,7 +158,9 @@ def main():
 
     print("\nthreshold sweep (with nudge):")
     sweep = {}
-    for t in (0.00, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04):
+    thr_sweep = ((0.00, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04) if engine == "apple"
+                 else (0.00, 0.02, 0.03, 0.035, 0.04, 0.05, 0.06, 0.08))
+    for t in thr_sweep:
         m = metrics(items, scores, t)
         sweep[t] = m
         mark = " <- current" if abs(t - thr) < 1e-9 else ""
@@ -175,7 +169,7 @@ def main():
 
     print("\nk sweep (at current threshold):")
     ksweep = {}
-    for k in (3, 5, 7, 9):
+    for k in k_sweep:
         sc = [m + nd for m, nd in zip(margins_at_k(items, sims, k), nudges)]
         m = metrics(items, sc, thr)
         ksweep[k] = m
@@ -198,7 +192,7 @@ def main():
 
     if json_out:
         json.dump({
-            "n": len(items), "k": K, "threshold": thr,
+            "engine": engine, "n": len(items), "k": K, "threshold": thr,
             "metrics": base, "margin_only": margin_only,
             "threshold_sweep": {str(k): v for k, v in sweep.items()},
             "k_sweep": {str(k): v for k, v in ksweep.items()},
@@ -208,9 +202,9 @@ def main():
         }, open(json_out, "w"), indent=1)
         print(f"\nwrote {json_out}")
 
-    ok = base["precision"] >= GATE_P and base["recall"] >= GATE_R
+    ok = base["precision"] >= gate_p and base["recall"] >= gate_r
     print(f"\nRESULT: {'GREEN' if ok else 'BLOCKED'} "
-          f"(gate: precision >= {GATE_P}, recall >= {GATE_R})")
+          f"(gate: precision >= {gate_p}, recall >= {gate_r})")
     sys.exit(0 if ok else 1)
 
 

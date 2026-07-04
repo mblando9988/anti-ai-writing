@@ -1,22 +1,19 @@
 #!/usr/bin/env python3
-import json, os, subprocess, tempfile, math, http.server, socketserver
+import json, os, subprocess, tempfile, http.server, socketserver
+from engine import load
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EMB=os.path.join(ROOT,"bin","embed_one"); HOOK=os.path.join(ROOT,"bin","anti_ai_sem")
-ref=json.load(open(os.path.join(ROOT,"corpus","corpus_emb.json")))
-def unit(v):
-    n=math.sqrt(sum(x*x for x in v)) or 1.0; return [x/n for x in v]
+HOOK, qvec, REF, ENGINE = load()
 def cos(a,b): return sum(x*y for x,y in zip(a,b))
 def check(text):
     with tempfile.TemporaryDirectory() as td:
         tp=os.path.join(td,"t.jsonl"); open(tp,"w").write(json.dumps({"type":"assistant","message":{"role":"assistant","content":text}})+"\n")
-        p=subprocess.run([HOOK],input=json.dumps({"transcript_path":tp}).encode(),capture_output=True,timeout=60)
+        p=subprocess.run(HOOK,input=json.dumps({"transcript_path":tp}).encode(),capture_output=True,timeout=60)
     why=p.stderr.decode().strip()
-    qv=json.loads(subprocess.run([EMB],input=text.encode(),capture_output=True,timeout=60).stdout or "[]")
+    q=qvec(text)
     na=nh=None
-    if len(qv)>10:
-        q=unit(qv)
-        ai=sorted(((cos(q,unit(e["v"])),e["text"]) for e in ref if e["label"]=="ai"),reverse=True)
-        hu=sorted(((cos(q,unit(e["v"])),e["text"]) for e in ref if e["label"]=="human"),reverse=True)
+    if q:
+        ai=sorted(((cos(q,v),t) for l,t,v in REF if l=="ai"),reverse=True)
+        hu=sorted(((cos(q,v),t) for l,t,v in REF if l=="human"),reverse=True)
         na=ai[0] if ai else None; nh=hu[0] if hu else None
     return {"flagged":p.returncode==2,"reason":why.split("): ",1)[-1] if "):" in why else why.split("allow: ")[-1],
             "near_ai":na,"near_human":nh}
@@ -29,4 +26,4 @@ class H(http.server.SimpleHTTPRequestHandler):
     def log_message(self,*a): pass
 if __name__=="__main__":
     with socketserver.TCPServer(("127.0.0.1",8778),H) as s:
-        print("demo at http://127.0.0.1:8778"); s.serve_forever()
+        print(f"demo at http://127.0.0.1:8778 ({ENGINE} engine)"); s.serve_forever()
