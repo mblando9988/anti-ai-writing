@@ -14,7 +14,7 @@ import json, os, subprocess, sys, tempfile, time
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOOK = [sys.executable, os.path.join(ROOT, "src", "anti_ai_sem.py")]
 CORPUS = json.load(open(os.path.join(ROOT, "corpus", "anti_ai_corpus.json")))
-GATE_P, GATE_R = 0.99, 0.94
+GATE_P, GATE_R = 0.99, 0.98
 
 
 def run(text=None, raw=None):
