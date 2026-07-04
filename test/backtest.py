@@ -38,7 +38,7 @@ nudge = _hook.nudge
 # semantic embedder; precision stays the non-negotiable part of the gate
 ENGINES = {
     "apple":    (5,  0.02, 0.99, 0.95, (3, 5, 7, 9)),
-    "portable": (_hook.K, _hook.DEFAULT_MARGIN, 0.99, 0.92, (5, 9, 15, 21)),
+    "portable": (_hook.K, _hook.DEFAULT_MARGIN, 0.99, 0.94, (5, 7, 9, 15)),
 }
 
 try:

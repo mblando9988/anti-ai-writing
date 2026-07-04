@@ -9,26 +9,30 @@ the text. There's no word list in the decision.
 Two interchangeable engines, same contract (exit 2 = flagged, 0 = not; bad or
 empty input exits 0):
 
+- **portable** (`src/anti_ai_sem.py`): the default. Plain python3, no
+  dependencies, any Linux or macOS. Two feature channels — hashed word/char
+  n-grams (what's said) plus a structural style profile of punctuation, emoji,
+  digits, casing, and sentence shape (how it's said; no word lists). It embeds
+  the corpus itself at startup, so new examples work immediately — there is no
+  re-embed step. Leave-one-out over the whole corpus: precision 1.000,
+  recall 0.953.
 - **macOS native** (`src/anti_ai_sem.swift`): Apple NLEmbedding sentence
-  vectors. Best accuracy. Needs swiftc.
-- **portable** (`src/anti_ai_sem.py`): hashed word/char n-gram vectors, plain
-  python3, no dependencies, any OS. It embeds the corpus itself at startup, so
-  new examples work immediately — no re-embed step. Slightly lower recall
-  (surface features instead of meaning), same zero-false-positive tuning.
+  vectors — real semantics instead of surface features. Needs swiftc, and a
+  corpus re-embed on a Mac when examples are added.
 
-## build & run
-
-macOS native:
-
-```
-swiftc -O src/anti_ai_sem.swift -o bin/anti_ai_sem
-echo '{"transcript_path":"turn.jsonl"}' | bin/anti_ai_sem
-```
+## run
 
 anywhere (no build):
 
 ```
 echo '{"transcript_path":"turn.jsonl"}' | python3 src/anti_ai_sem.py
+```
+
+macOS native (optional):
+
+```
+swiftc -O src/anti_ai_sem.swift -o bin/anti_ai_sem
+echo '{"transcript_path":"turn.jsonl"}' | bin/anti_ai_sem
 ```
 
 ## test
@@ -39,20 +43,22 @@ python3 test/verify_sem.py
 
 Runs every corpus item through the binary and prints precision/recall. Last run was 0.99/0.96 on 431 examples. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split. `test/eval.py` runs the case files under `test/cases/` and reports false positives and negatives.
 
-## backtest (no Mac needed)
+## backtest & verify (no Mac needed)
 
 ```
+python3 test/verify_portable.py      # every corpus example through the real hook
+python3 test/backtest.py --portable  # leave-one-out replay + threshold/k sweeps
 python3 test/backtest.py             # apple engine: precomputed embeddings
-python3 test/backtest.py --portable  # portable engine: the whole corpus
 python3 test/lint_corpus.py          # data quality: dups, ids, embedding sync
-HOOK="python3 src/anti_ai_sem.py" python3 test/eval.py   # cases via portable
+HOOK="python3 src/anti_ai_sem.py" python3 test/eval.py   # 36-case suite
 ```
 
-The backtest replays each engine's exact scoring math (top-k cosine margin
-plus the positional nudge), leaving each example out of its own vote. It
-prints precision/recall, a threshold sweep, a k sweep, and every miss. Last
-run — apple: precision 1.000, recall 0.970 on the 431 embedded examples;
-portable: precision 1.000, recall 0.930 on all 573. All of it runs in CI.
+`verify_portable.py` is the end-to-end proof: it feeds each corpus example to
+the hook exactly the way the runtime does (transcript file, stdin JSON, exit
+codes) and checks the fail-open behaviors. The backtest replays each engine's
+scoring math leave-one-out and prints threshold/k sweeps and every miss. Last
+run — portable: precision 1.000, recall 0.953 on all 621 examples; apple:
+precision 1.000, recall 0.970 on its 431 embedded. All of it runs in CI.
 
 ## demo
 

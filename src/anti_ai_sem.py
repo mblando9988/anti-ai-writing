@@ -21,11 +21,12 @@ from hashlib import blake2b
 
 DIM = 2048
 K = 9
-DEFAULT_MARGIN = 0.04
+DEFAULT_MARGIN = 0.025
+STYLE_W = 0.10   # weight of the structural style channel in the similarity
 
 
-def embed(text):
-    """Hashed n-gram embedding: words, word bigrams, char 3-5 grams, signed
+def _ngram_vec(text):
+    """Hashed n-gram channel: words, word bigrams, char 3-5 grams, signed
     hashing into DIM buckets, sublinear tf, L2-normalized."""
     t = re.sub(r"\s+", " ", text.lower().strip())
     words = re.findall(r"[a-z0-9']+|[^\sa-z0-9']", t)
@@ -49,6 +50,53 @@ def embed(text):
         v[(u >> 1) % DIM] += (1.0 if u & 1 else -1.0) * (1 + math.log(tf))
     norm = math.sqrt(sum(x * x for x in v)) or 1.0
     return [x / norm for x in v]
+
+
+def _style_vec(text):
+    """Structural style channel: punctuation, emoji, digits, casing, and
+    sentence-shape statistics. No word lists — register, not topic. This is
+    what lets 'Proud beyond words of this incredible team!' sit next to
+    'Thrilled to announce our journey…' when they share no n-grams, and what
+    keeps terse, digit-heavy, code-flavored human replies away from slop."""
+    t = text.strip()
+    words = re.findall(r"\S+", t)
+    W = max(len(words), 1)
+    lw = re.findall(r"[A-Za-z]+", t)
+    sents = [s for s in re.split(r"[.!?]+", t) if s.strip()]
+    f = [
+        t.count("!") / W * 8,
+        1.0 if re.search(r"[\U0001F000-\U0001FAFF✀-➿☀-⛿✨❤]", t) else 0.0,
+        sum(1 for w in words if re.search(r"\d", w)) / W * 4,
+        sum(1 for w in words if re.search(r"[/_]|--|\(\)|\.\w", w)) / W * 4,
+        1.0 if re.search(r"\d+\s?(ms|s\b|gb|mb|kb|%|x\b|min\b)", t, re.I) else 0.0,
+        min(sum(len(w) for w in lw) / max(len(lw), 1), 9) / 9,
+        t.count(",") / W * 6,
+        t.count(";") / W * 8,
+        t.count(":") / W * 8,
+        (t.count("—") + t.count(" - ")) / W * 8,
+        t.count("?") / W * 8,
+        1.0 if t[:1].islower() else 0.0,
+        min(W / max(len(sents), 1), 30) / 30,
+        sum(1 for w in words if "'" in w) / W * 6,
+        1.0 if re.search(r"[\"“”`]", t) else 0.0,
+        1.0 if "(" in t else 0.0,
+        sum(1 for w in words[1:] if re.match(r"[A-Z][a-z]", w)) / W * 4,
+        sum(1 for w in words if re.match(r"[A-Z]{2,}$", re.sub(r"\W", "", w))) / W * 6,
+        min(W, 40) / 40,
+        sum(1 for w in words if "-" in w and not w.startswith("-")) / W * 6,
+    ]
+    norm = math.sqrt(sum(x * x for x in f)) or 1.0
+    return [x / norm for x in f]
+
+
+def embed(text):
+    """Two channels concatenated with sqrt weights, so the dot product of two
+    embeddings is exactly (1-w)*cos_ngram + w*cos_style, and the vector stays
+    unit-norm."""
+    a = math.sqrt(1 - STYLE_W)
+    b = math.sqrt(STYLE_W)
+    return ([x * a for x in _ngram_vec(text)] +
+            [x * b for x in _style_vec(text)])
 
 
 def nudge(text, engine="portable"):
