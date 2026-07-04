@@ -3328,5 +3328,113 @@
   "source": "status-human-gen",
   "text": "quarter recap: shipped sso, killed the legacy importer, cut infra spend 30%. details in the doc.",
   "id": 554
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly no clue why the test is green now. I didn't change anything meaningful.",
+  "id": 555
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "frankly this config is a mess and I don't trust it in prod yet.",
+  "id": 556
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly I can't tell if the fix worked or the bug just stopped triggering.",
+  "id": 557
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly the logs say nothing useful. it just dies at startup with code 137.",
+  "id": 558
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "frankly I'd rather rewrite this module than debug it another week.",
+  "id": 559
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly not sure what changed. bisecting now, will report back in an hour.",
+  "id": 560
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly, this is the third time the deploy script has eaten the config.",
+  "id": 561
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly, this is beyond me today. taking a break and looking again after lunch.",
+  "id": 562
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly, this is why I wanted integration tests. the mock hid the whole failure.",
+  "id": 563
+ },
+ {
+  "label": "ai",
+  "source": "closing-slop-gen",
+  "text": "Hope this helps! Don't hesitate to reach out if you have any other questions on your journey.",
+  "id": 564
+ },
+ {
+  "label": "ai",
+  "source": "closing-slop-gen",
+  "text": "Hope that clears things up! Feel free to let me know if there's anything else I can assist with.",
+  "id": 565
+ },
+ {
+  "label": "ai",
+  "source": "closing-slop-gen",
+  "text": "Let me know if this helps, and I'd be happy to dive deeper into any aspect you'd like!",
+  "id": 566
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly, this one's on me. I approved the PR without running the migration locally.",
+  "id": 567
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly the dashboard has been wrong all week. the collector drops samples under load.",
+  "id": 568
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "frankly, the retry logic scares me more than the outage did. it has no ceiling.",
+  "id": 569
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "frankly the test suite takes 40 minutes and catches nothing. we should gut it.",
+  "id": 571
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly, this is fine for now. revisit when we actually have traffic.",
+  "id": 572
+ },
+ {
+  "label": "human",
+  "source": "honest-opener-human-gen",
+  "text": "honestly can't reproduce it anymore after the cache clear. keeping the ticket open anyway.",
+  "id": 573
  }
 ]
