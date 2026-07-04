@@ -3,6 +3,11 @@ ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HOOK=os.path.join(ROOT,"bin","anti_ai_sem")
 SRC=os.path.join(ROOT,"src","anti_ai_sem.swift")
 CORPUS=json.load(open(os.path.join(ROOT,"corpus","anti_ai_corpus.json")))
+_embedded={x["text"] for x in json.load(open(os.path.join(ROOT,"corpus","corpus_emb.json")))}
+_pending=sum(1 for c in CORPUS if c["text"] not in _embedded)
+if _pending:
+    print(f"note: {_pending} corpus examples aren't embedded yet — numbers below treat them "
+          f"as holdout. run `swift src/embed_corpus.swift` in corpus/ to fold them in.")
 
 def anti_drift():
     # Hybrid contract: the embedding margin is the BASE of the score; a small
