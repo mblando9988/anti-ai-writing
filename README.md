@@ -86,23 +86,6 @@ corpus/   labeled examples and their embeddings
 test/     verifier + the a/b script
 ```
 
-## pattern sources
-
-The corpus is 100% original text — no sentences are copied from other
-datasets or repos (many carry share-alike or research-only licenses, and the
-human halves of the big benchmark corpora are scraped from places like Reddit
-and StackExchange that this repo can't relicense). What we do borrow is
-*coverage*: the register list is audited against other projects' published
-tells, and gaps get original examples written in those styles. Credit where
-the tells came from:
-
-- [awesome-slop](https://github.com/hwajongpark/awesome-slop) (CC0) —
-  multilingual tell research, em-dash and "not x, but y" patterns
-- [claude-slop-detector](https://github.com/aplaceforallmystuff/claude-slop-detector)
-  (MIT) — tiered phrase lists, staccato-fragment and hedging structural tells
-- [anti-ai-slop-writing](https://github.com/jalaalrd/anti-ai-slop-writing)
-  (MIT) — banned sentence openers, emoji-bullet and formatting-leak tells
-
 ## teach it more
 
 Add example sentences with one command (no editing files):
