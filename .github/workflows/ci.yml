@@ -19,6 +19,8 @@ jobs:
           git remote add origin "https://github.com/${GITHUB_REPOSITORY}"
           git fetch -q --depth 1 origin "${GITHUB_REF}"
           git checkout -q FETCH_HEAD
+      - name: numpy (optional speedup; everything still works without it)
+        run: pip install numpy --break-system-packages 2>/dev/null || pip install numpy || true
       - name: corpus lint
         run: python3 test/lint_corpus.py
       - name: backtest (apple engine, precomputed embeddings)

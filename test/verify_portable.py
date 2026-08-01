@@ -29,10 +29,17 @@ def run(text=None, raw=None):
 
 
 def main():
+    corpus = CORPUS
+    if "--sample" in sys.argv:
+        # deterministic every-Nth thinning for slow environments (no numpy)
+        want = int(sys.argv[sys.argv.index("--sample") + 1])
+        step = max(1, len(corpus) // want)
+        corpus = corpus[::step]
+        print(f"sampling every {step}th item: {len(corpus)} of {len(CORPUS)}")
     t0 = time.time()
     TP = FP = FN = TN = 0
     fp, fn = [], []
-    for i, c in enumerate(CORPUS, 1):
+    for i, c in enumerate(corpus, 1):
         blocked = run(text=c["text"]) == 2
         if c["label"] == "ai":
             if blocked: TP += 1
@@ -44,7 +51,7 @@ def main():
             print(f"  ...{i}/{len(CORPUS)} ({time.time()-t0:.0f}s)", flush=True)
     prec = TP / (TP + FP) if TP + FP else 0
     rec = TP / (TP + FN) if TP + FN else 0
-    print(f"PORTABLE HOOK over {len(CORPUS)} items in {time.time()-t0:.0f}s")
+    print(f"PORTABLE HOOK over {len(corpus)} items in {time.time()-t0:.0f}s")
     print(f"TP={TP} FP={FP} FN={FN} TN={TN}  precision={prec:.3f} recall={rec:.3f}  "
           f"(gate >={GATE_P} / >={GATE_R})")
 
