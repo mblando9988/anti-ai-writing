@@ -57,7 +57,7 @@ HOOK="python3 src/anti_ai_sem.py" python3 test/eval.py   # 36-case suite
 the hook exactly the way the runtime does (transcript file, stdin JSON, exit
 codes) and checks the fail-open behaviors. The backtest replays each engine's
 scoring math leave-one-out and prints threshold/k sweeps and every miss. Last
-run — portable: precision 1.000, recall 0.988.on all 4,595 examples; apple:
+run — portable: precision 1.000, recall 0.988 on all 7,831 examples; apple:
 precision 1.000, recall 0.970 on its 431 embedded. All of it runs in CI.
 
 ## demo
