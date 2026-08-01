@@ -4,9 +4,11 @@
 # Reports accuracy and, crucially, the two error types:
 #   false positive = a human/edge case that got BLOCKED (the over-blocking the devil flagged)
 #   false negative = AI slop that PASSED
-import json, os, subprocess, tempfile, sys, glob
+import json, os, shlex, subprocess, tempfile, sys, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-HOOK = os.path.join(ROOT, "bin", "anti_ai_sem")
+# HOOK env overrides the binary under test, e.g. the portable engine:
+#   HOOK="python3 src/anti_ai_sem.py" python3 test/eval.py
+HOOK = shlex.split(os.environ.get("HOOK", "")) or [os.path.join(ROOT, "bin", "anti_ai_sem")]
 CASES = os.path.join(ROOT, "test", "cases")
 
 def run(text):
@@ -14,7 +16,7 @@ def run(text):
         tp = os.path.join(td, "t.jsonl")
         open(tp, "w").write(json.dumps(
             {"type": "assistant", "message": {"role": "assistant", "content": text}}) + "\n")
-        p = subprocess.run([HOOK], input=json.dumps({"transcript_path": tp}).encode(),
+        p = subprocess.run(HOOK, input=json.dumps({"transcript_path": tp}).encode(),
                            capture_output=True, timeout=60)
         return p.returncode, (p.stderr.decode().strip() or p.stdout.decode().strip())
 
