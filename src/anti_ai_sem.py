@@ -142,6 +142,14 @@ def nudge(text, engine="portable"):
     return n, why
 
 
+ENGINE_VERSION = "p2"   # bump when embed() features change: invalidates the cache
+
+try:
+    import numpy as _np   # optional: big-corpus speedup; everything works without it
+except ImportError:
+    _np = None
+
+
 def load_corpus():
     here = os.path.dirname(os.path.abspath(__file__))
     for p in (os.path.join(here, "..", "corpus", "anti_ai_corpus.json"),
@@ -151,18 +159,71 @@ def load_corpus():
     return []
 
 
+def load_refs():
+    """Corpus as (label, text, vector) triples, via a binary vector cache next
+    to the corpus so a big corpus doesn't get re-embedded on every hook call.
+    The cache key covers the corpus content AND the engine version, so editing
+    the corpus or changing embed() regenerates it automatically. Cache write is
+    best-effort — read-only checkouts just embed in memory."""
+    import array
+    corpus = load_corpus()
+    if not corpus:
+        return []
+    src = json.dumps([(x["label"], x["text"]) for x in corpus], ensure_ascii=False)
+    key = blake2b((ENGINE_VERSION + src).encode(), digest_size=16).hexdigest()
+    here = os.path.dirname(os.path.abspath(__file__))
+    cdir = os.path.join(here, "..", "corpus")
+    meta_p = os.path.join(cdir, ".portable_cache.json")
+    bin_p = os.path.join(cdir, ".portable_cache.bin")
+    try:
+        meta = json.load(open(meta_p))
+        if meta.get("key") == key:
+            raw = open(bin_p, "rb").read()
+            dim, n = meta["dim"], meta["n"]
+            if _np is not None:
+                V = _np.frombuffer(raw, dtype=_np.float32).reshape(n, dim)
+                return [(x["label"], x["text"], V[i]) for i, x in enumerate(corpus)]
+            a = array.array("f")
+            a.frombytes(raw)
+            return [(x["label"], x["text"], a[i * dim:(i + 1) * dim])
+                    for i, x in enumerate(corpus)]
+    except (OSError, ValueError, KeyError):
+        pass
+    refs = [(x["label"], x["text"], embed(x["text"])) for x in corpus]
+    try:
+        flat = array.array("f")
+        for _, _, v in refs:
+            flat.extend(v)
+        with open(bin_p, "wb") as f:
+            f.write(flat.tobytes())
+        json.dump({"key": key, "dim": len(refs[0][2]), "n": len(refs)},
+                  open(meta_p, "w"))
+    except OSError:
+        pass
+    return refs
+
+
 def margin(text, refs, k=K):
     """Contrastive margin of `text` against embedded refs
     [(label, text, vector), ...], skipping exact-text self matches."""
     q = embed(text)
-    ai, hu = [], []
-    for label, rtext, rv in refs:
-        if rtext == text:
-            continue
-        c = sum(a * b for a, b in zip(q, rv))  # vectors are unit-norm
-        (ai if label == "ai" else hu).append(c)
-    ai.sort(reverse=True)
-    hu.sort(reverse=True)
+    if _np is not None and refs:
+        qv = _np.asarray(q, dtype=_np.float64)
+        M = _np.asarray([v for _, _, v in refs], dtype=_np.float64)
+        sims = M @ qv
+        ai = sorted((float(s) for (l, rt, _), s in zip(refs, sims)
+                     if l == "ai" and rt != text), reverse=True)
+        hu = sorted((float(s) for (l, rt, _), s in zip(refs, sims)
+                     if l == "human" and rt != text), reverse=True)
+    else:
+        ai, hu = [], []
+        for label, rtext, rv in refs:
+            if rtext == text:
+                continue
+            c = sum(a * b for a, b in zip(q, rv))  # vectors are unit-norm
+            (ai if label == "ai" else hu).append(c)
+        ai.sort(reverse=True)
+        hu.sort(reverse=True)
     top_ai = ai[:k] or [0.0]
     top_hu = hu[:k] or [0.0]
     return sum(top_ai) / len(top_ai) - sum(top_hu) / len(top_hu)
@@ -235,10 +296,9 @@ def main():
     if len([w for w in re.split(r"[ \n]", text) if w]) < 6:
         allow("too short to judge style")
 
-    corpus = load_corpus()
-    if not corpus:
+    refs = load_refs()
+    if not refs:
         allow("no reference corpus")
-    refs = [(x["label"], x["text"], embed(x["text"])) for x in corpus]
 
     try:
         thr = float(os.environ.get("SR_MARGIN", ""))

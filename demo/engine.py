@@ -35,7 +35,6 @@ def load():
         "anti_ai_sem", os.path.join(ROOT, "src", "anti_ai_sem.py"))
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
-    corpus = json.load(open(os.path.join(ROOT, "corpus", "anti_ai_corpus.json")))
-    refs = [(x["label"], x["text"], mod.embed(x["text"])) for x in corpus]
+    refs = mod.load_refs()
     return ([sys.executable, os.path.join(ROOT, "src", "anti_ai_sem.py")],
             mod.embed, refs, "portable")
