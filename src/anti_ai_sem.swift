@@ -133,10 +133,16 @@ if hits.count >= 3 { struc.append("buzzword_stacking") }
 let opening = String(text.prefix(120)).lowercased()
 let openerPraise = rx("^\\W*(great|excellent|fantastic|brilliant|wonderful|amazing|perfect)\\s+(question|point|observation)") || opening.range(of: #"^\W*(honestly|frankly|absolutely|certainly|of course)\b"#, options: .regularExpression) != nil
 func anyRx(_ p: String) -> Bool { lower.range(of: p, options: .regularExpression) != nil }
-let validation = anyRx(#"your (theory|hypothesis|framing|instinct|intuition|perspective|premise) (is|sounds)|you raise (a )?(great|good|valid|important) point|completely (valid|understandable)|spot on|on the right track|you'?re (absolutely )?right"#)
+// "you're not wrong" is validation wearing a negation costume — it praises,
+// it doesn't push back. Count it as validation, and strip it before the
+// disagreement check so its "not wrong" can't buy a redemption discount.
+let notWrong = anyRx(#"you'?re not wrong|you are not wrong"#)
+let validation = notWrong || anyRx(#"your (theory|hypothesis|framing|instinct|intuition|perspective|premise) (is|sounds)|you raise (a )?(great|good|valid|important) point|completely (valid|understandable)|spot on|on the right track|you'?re (absolutely )?right"#)
 // only negation / self-correction markers — substance markers like "on line N"
 // or "I don't know" are too easy to prepend to slop, so they're excluded.
-let disagree = anyRx(#"\bhowever\b|\bin fact\b|not (quite|the case|true|wrong|right|the|outside|inside)\b|i'?d push back|the (data|evidence) (does|doesn'?t|suggest|show)|the opposite|but no\b|but not\b|but the\b|i misread|absolutely not|absolutely no\b"#)
+let lowerSansNotWrong = lower.replacingOccurrences(of: #"you'?re not wrong|you are not wrong"#, with: "", options: .regularExpression)
+func disRx(_ p: String) -> Bool { lowerSansNotWrong.range(of: p, options: .regularExpression) != nil }
+let disagree = disRx(#"\bhowever\b|\bin fact\b|not (quite|the case|true|wrong|right|the|outside|inside)\b|i'?d push back|the (data|evidence) (does|doesn'?t|suggest|show)|the opposite|but no\b|but not\b|but the\b|i misread|absolutely not|absolutely no\b"#)
 var nudge = 0.0, why: [String] = []
 if openerPraise { nudge += 0.05; why.append("opener-praise") }
 if validation   { nudge += 0.03; why.append("validation") }

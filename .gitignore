@@ -9,3 +9,10 @@ bin/anti_ai_sem
 __pycache__/
 *.pyc
 bin/embed_one
+
+# portable engine vector cache (regenerated from the corpus)
+corpus/.portable_cache.json
+corpus/.portable_cache.bin
+
+# transient generation staging (merged into the corpus, then deleted)
+undefined/

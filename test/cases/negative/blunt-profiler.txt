@@ -1,0 +1,1 @@
+Look, the profiler says 80% of the time is in json.loads on a 40MB payload. Stream it or cache the parsed result; nothing else will matter until then.

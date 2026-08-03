@@ -1,31 +1,26 @@
 #!/usr/bin/env python3
 # Terminal demo. Type a sentence, press Enter, see if it reads AI (red) or human
 # (green) with the score and the nearest AI/human example. Ctrl-C to quit.
-import json, os, subprocess, tempfile, math, curses, textwrap
+import json, os, subprocess, tempfile, curses, textwrap
+from engine import load
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EMB  = os.path.join(ROOT, "bin", "embed_one")
-HOOK = os.path.join(ROOT, "bin", "anti_ai_sem")
-REF  = json.load(open(os.path.join(ROOT, "corpus", "corpus_emb.json")))
+HOOK, qvec, REF, ENGINE = load()
 
-def _unit(v):
-    n = math.sqrt(sum(x*x for x in v)) or 1.0
-    return [x/n for x in v]
 def _cos(a, b): return sum(x*y for x, y in zip(a, b))
 
 def check(text):
     with tempfile.TemporaryDirectory() as td:
         tp = os.path.join(td, "t.jsonl")
         open(tp, "w").write(json.dumps({"type":"assistant","message":{"role":"assistant","content":text}})+"\n")
-        p = subprocess.run([HOOK], input=json.dumps({"transcript_path":tp}).encode(), capture_output=True, timeout=60)
+        p = subprocess.run(HOOK, input=json.dumps({"transcript_path":tp}).encode(), capture_output=True, timeout=60)
     why = p.stderr.decode().strip()
     reason = why.split("): ",1)[-1] if "):" in why else why.split("allow: ")[-1]
-    qv = json.loads(subprocess.run([EMB], input=text.encode(), capture_output=True, timeout=60).stdout or "[]")
+    q = qvec(text)
     ai = hu = []
-    if len(qv) > 10:
-        q = _unit(qv)
-        ai = sorted(((_cos(q,_unit(e["v"])), e["text"]) for e in REF if e["label"]=="ai"), reverse=True)[:3]
-        hu = sorted(((_cos(q,_unit(e["v"])), e["text"]) for e in REF if e["label"]=="human"), reverse=True)[:3]
+    if q:
+        ai = sorted(((_cos(q, v), t) for l, t, v in REF if l == "ai"), reverse=True)[:3]
+        hu = sorted(((_cos(q, v), t) for l, t, v in REF if l == "human"), reverse=True)[:3]
     return p.returncode == 2, reason, ai, hu
 
 SAMPLES = [
@@ -57,7 +52,8 @@ def app(scr):
             scr.addstr(y+3, 1, verdict, cp | curses.A_BOLD | curses.A_REVERSE)
             scr.addstr(y+4, 1, reason[:W], curses.color_pair(4))
             best = max((na[0][0] if na else 0), (nh[0][0] if nh else 0))
-            weak = "   (weak — nothing close in corpus)" if best < 0.88 else ""
+            weak_thr = 0.88 if ENGINE == "apple" else 0.25  # hash cosines run lower
+            weak = "   (weak — nothing close in corpus)" if best < weak_thr else ""
             scr.addstr(y+6, 1, "closest AI examples" + weak, curses.color_pair(1) | curses.A_BOLD)
             for i, (c, t) in enumerate(na):
                 scr.addstr(y+7+i, 1, f"{c:.2f} ", curses.color_pair(4))

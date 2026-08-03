@@ -1,0 +1,1 @@
+Look, the slow dashboard isn't your widget — honestly the real culprit is the unoptimized data layer, and streamlining it will deliver a truly seamless experience.

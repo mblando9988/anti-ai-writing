@@ -1,0 +1,1 @@
+You're not wrong about the cache being stale, but the bug is the TTL config: it's set to 0 in prod, so every request misses. Fixed in deploy 412.
