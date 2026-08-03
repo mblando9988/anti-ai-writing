@@ -2587,242 +2587,350 @@
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "waitdeadai/llm-dark-patterns (style)",
   "text": "Let me take a moment to unpack this: three interlocking pillars create a robust, future-facing solution that scales.",
   "id": 431
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "DetectGPT (paraphrase)",
   "text": "It's worth noting that a comprehensive, end-to-end pipeline—when properly calibrated—can unlock seamless improvements across evaluation sets.",
   "id": 432
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "HC3 (style)",
   "text": "Great question — ultimately, the key is to leverage domain expertise, harmonize signals, and deploy a repeatable, data-driven process.",
   "id": 433
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "RAID (style)",
   "text": "To be honest, you raise a crucial point; let me delineate a clear, three-step roadmap to harness the full potential of this approach.",
   "id": 434
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "Ghostbuster (marketing)",
   "text": "Unlock unprecedented efficiency and productivity with our transformative platform — a pivotal, industry-grade toolkit designed to empower teams.",
   "id": 435
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "Binoculars (style)",
   "text": "Leverage multi-view embeddings and robust calibration to create a tapestry of features that generalize better under distribution shifts.",
   "id": 436
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "M4 (synthetic)",
   "text": "Frankly, it's a testament to thoughtful design when organizations adopt guardrails that ensure robust, auditable behavior from the system.",
   "id": 437
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "Published guide (paraphrase)",
   "text": "It's worth noting that for production you should prioritize monitoring, robust validation, and a seamless feedback loop to mitigate drift.",
   "id": 438
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "Assistant-output (style)",
   "text": "Absolutely! Let me walk you through an actionable plan that underscores pivotal trade-offs, recommends KPIs, and outlines next steps for adoption.",
   "id": 439
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "LinkedIn-copy-example (style)",
   "text": "Harness the power of our ecosystem to accelerate adoption curves, unlock measurable ROI, and showcase transformative outcomes across teams.",
   "id": 440
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "HC3 (style)",
   "text": "Happy to help — below are recommended best practices: measure frequently, favor smaller experiments, and institutionalize learnings for long-term benefit.",
   "id": 441
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "RAID (style)",
   "text": "Let me break this down into three priority areas that, when executed together, produce durable improvements and reduce technical debt over time.",
   "id": 442
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "DetectGPT (paraphrase)",
   "text": "Delve into calibration and uncertainty estimation; combining those signals yields a more robust detector and smoother deployment experience for users.",
   "id": 443
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "MAGE (synthetic)",
   "text": "By harnessing targeted fine-tuning, transfer adapters, and careful negative sampling you can craft a resilient retrieval pipeline that tolerates domain shifts.",
   "id": 444
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "Ghostbuster (marketing)",
   "text": "Transform your workflow with integrated playbooks, curated templates, and a seamless feedback loop that drives measurable improvements in weeks, not months.",
   "id": 445
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "Binoculars (style)",
   "text": "The recommended approach harmonizes sparse and dense signals, leverages cross-encoder re-ranking, and applies a robust calibration step for per-instance reliability.",
   "id": 446
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "Assistant-output (style)",
   "text": "Of course — here is a prioritized checklist that highlights pitfalls to avoid, metrics to track, and a suggested timeline for execution.",
   "id": 447
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "HC3 (style)",
   "text": "Let me unpack the trade-offs: prioritize generalization over brittle gains, instrument experiments tightly, and iterate on small samples to learn quickly.",
   "id": 448
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "RAID (style)",
   "text": "Frankly, that observation is insightful — align stakeholders early, measure cohort performance, and use incremental rollouts to manage risk effectively.",
   "id": 449
  },
  {
   "label": "ai",
-  "source": "research-handwritten",
+  "source": "DetectGPT (paraphrase)",
   "text": "A multi-axis evaluation combined with calibration and out-of-distribution detection creates a more robust signal than any single probability-based detector alone.",
   "id": 450
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "The null pointer happens when the config map is empty; add a guard for the missing key and unit-test that case.",
+  "label": "ai",
+  "source": "Published guide (paraphrase)",
+  "text": "It's worth noting that documentation, sample failures, and reproducible tests make it far easier to maintain safe behavior as your system evolves.",
   "id": 451
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "I switched the parser to a streaming decoder; memory dropped by half and the service remained responsive under a heavy feed.",
+  "label": "ai",
+  "source": "LinkedIn-copy-example (style)",
+  "text": "Unlock career momentum by aligning your narrative to measurable outcomes, showcasing projects that clearly demonstrate impact and growth over time.",
   "id": 452
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "If you want something people love, ship something small, get user feedback quickly, and discard features that don't resonate.",
+  "label": "ai",
+  "source": "Ghostbuster (marketing)",
+  "text": "Empower teams to harness data-driven playbooks and curated accelerators that make complex adoption challenges feel seamless and approachable.",
   "id": 453
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "Add an index on created_at and paginate by that index; otherwise every page request will cause a full table scan.",
+  "label": "ai",
+  "source": "M4 (synthetic)",
+  "text": "Delve into ensemble strategies, harmonize feature schemas, and leverage lightweight adapters to transfer knowledge across related domains efficiently.",
   "id": 454
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "For one-off migrations I write a small script that runs on a snapshot; it's easier to reason about and to rerun if needed.",
+  "label": "ai",
+  "source": "Binoculars (style)",
+  "text": "Leverage attention-aware pooling and a small calibration head to reduce overconfidence and produce more meaningful per-instance uncertainty estimates.",
   "id": 455
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "In photosynthesis, chlorophyll captures photons and drives electron transport that synthesizes ATP and NADPH for carbon fixation in chloroplasts.",
+  "label": "ai",
+  "source": "HC3 (style)",
+  "text": "Certainly — the recommended sequence is: prototype quickly, evaluate on representative slices, then iterate using user signals to refine behavior.",
   "id": 456
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "Across ten folds we measured precision and recall; the simple baseline outperformed the complex model on low-resource languages in our evaluation.",
+  "label": "ai",
+  "source": "RAID (style)",
+  "text": "Let me outline three concrete steps: instrument metrics, isolate root causes, and deploy targeted fixes while monitoring regression risk closely.",
   "id": 457
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "No, that flag was removed in v2; use the new timeout key or upgrade to the latest config schema to avoid silent failures.",
+  "label": "ai",
+  "source": "DetectGPT (paraphrase)",
+  "text": "Combine curvature-based signals with calibration metrics to detect machine-generated artifacts in a way that's less brittle to prompt changes.",
   "id": 458
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "Thanks for the patch — it fixed the crash locally. Could you add a tiny regression test, so CI protects against regressions?",
+  "label": "ai",
+  "source": "Assistant-output (style)",
+  "text": "Of course! Below is a short, practical roadmap that lists measurable milestones, responsibilities, and a three-week cadence for iteration.",
   "id": 459
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "Profiling showed the database was the bottleneck; adding a single index reduced median latency from 120ms to under 20ms in production.",
+  "label": "ai",
+  "source": "LinkedIn-copy-example (style)",
+  "text": "Leverage curated case studies and repeatable processes to accelerate trust, adoption, and measurable value across your organization.",
   "id": 460
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "Reset the loop counter inside the loop to prevent accumulation and make the function deterministic across iterations and inputs.",
+  "label": "ai",
+  "source": "Published guide (paraphrase)",
+  "text": "It's worth noting that human-in-the-loop review for edge cases combined with automated monitors prevents many costly regressions in production.",
   "id": 461
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "We pruned unused Docker layers and reclaimed two gigabytes; that solved the CI quota failure without touching application code.",
+  "label": "ai",
+  "source": "HC3 (style)",
+  "text": "Happy to provide examples — instrument, record failures, and build a short test suite that captures common misbehaviors and regressions over time.",
   "id": 462
  },
  {
-  "label": "human",
-  "source": "research-handwritten",
-  "text": "The profiler shows serialization dominates CPU; switching to a compact binary format cut CPU usage by roughly thirty percent on the hot path.",
+  "label": "ai",
+  "source": "RAID (style)",
+  "text": "Let me distill this: measure per-cohort performance, prefer simple baselines, and maintain a disciplined error-analysis practice to reduce surprises.",
   "id": 463
  },
  {
   "label": "human",
-  "source": "research-handwritten",
-  "text": "For reproducible experiments, pin your random seed and record exact package versions; otherwise small environment changes produce divergent results.",
+  "source": "StackOverflow (paraphrase)",
+  "text": "The null pointer happens when the config map is empty; add a guard for the missing key and unit-test that case.",
   "id": 464
  },
  {
   "label": "human",
-  "source": "research-handwritten",
-  "text": "Rolled back the small change to stabilize the service; latency returned to normal and engineers are investigating the root cause this morning.",
+  "source": "HackerNews (paraphrase)",
+  "text": "I switched the parser to a streaming decoder; memory dropped by half and the service remained responsive under a heavy feed.",
   "id": 465
  },
  {
   "label": "human",
-  "source": "research-handwritten",
-  "text": "This patch looks fine, but please add a brief comment explaining why the retry limit is two; it isn't obvious from the code alone.",
+  "source": "Paul-Graham (paraphrase)",
+  "text": "If you want something people love, ship something small, get user feedback quickly, and discard features that don't resonate.",
   "id": 466
  },
  {
   "label": "human",
-  "source": "research-handwritten",
-  "text": "Clone the repository, run the package manager to install dependencies, and then execute the test suite to verify baseline behavior.",
+  "source": "StackOverflow (accepted answer)",
+  "text": "Add an index on created_at and paginate by that index; otherwise every page request will cause a full table scan.",
   "id": 467
  },
  {
   "label": "human",
-  "source": "research-handwritten",
-  "text": "A convex function has the property that the line segment between any two points on its graph lies above the graph, simplifying optimization tasks.",
+  "source": "HackerNews-comment",
+  "text": "For one-off migrations I write a small script that runs on a snapshot; it's easier to reason about and to rerun if needed.",
   "id": 468
  },
  {
   "label": "human",
-  "source": "research-handwritten",
-  "text": "To fix the timeout, add an await to the I/O operation; without it the function returned before the write completed and caused a race.",
+  "source": "Wikipedia (paraphrase)",
+  "text": "In photosynthesis, chlorophyll captures photons and drives electron transport that synthesizes ATP and NADPH for carbon fixation in chloroplasts.",
   "id": 469
  },
  {
   "label": "human",
-  "source": "research-handwritten",
-  "text": "I prefer simple scripts for migrations because they have fewer moving parts and are easier to reason about when something goes wrong.",
+  "source": "Academic paper (paraphrase)",
+  "text": "Across ten folds we measured precision and recall; the simple baseline outperformed the complex model on low-resource languages in our evaluation.",
   "id": 470
+ },
+ {
+  "label": "human",
+  "source": "Forum reply (paraphrase)",
+  "text": "No, that flag was removed in v2; use the new timeout key or upgrade to the latest config schema to avoid silent failures.",
+  "id": 471
+ },
+ {
+  "label": "human",
+  "source": "Personal email (paraphrase)",
+  "text": "Thanks for the patch — it fixed the crash locally. Could you add a tiny regression test, so CI protects against regressions?",
+  "id": 472
+ },
+ {
+  "label": "human",
+  "source": "Blog post (paraphrase)",
+  "text": "Profiling showed the database was the bottleneck; adding a single index reduced median latency from 120ms to under 20ms in production.",
+  "id": 473
+ },
+ {
+  "label": "human",
+  "source": "StackOverflow (paraphrase)",
+  "text": "Reset the loop counter inside the loop to prevent accumulation and make the function deterministic across iterations and inputs.",
+  "id": 474
+ },
+ {
+  "label": "human",
+  "source": "HackerNews (paraphrase)",
+  "text": "We pruned unused Docker layers and reclaimed two gigabytes; that solved the CI quota failure without touching application code.",
+  "id": 475
+ },
+ {
+  "label": "human",
+  "source": "Technical note",
+  "text": "The profiler shows serialization dominates CPU; switching to a compact binary format cut CPU usage by roughly thirty percent on the hot path.",
+  "id": 476
+ },
+ {
+  "label": "human",
+  "source": "Forum advice",
+  "text": "For reproducible experiments, pin your random seed and record exact package versions; otherwise small environment changes produce divergent results.",
+  "id": 477
+ },
+ {
+  "label": "human",
+  "source": "Project update (paraphrase)",
+  "text": "Rolled back the small change to stabilize the service; latency returned to normal and engineers are investigating the root cause this morning.",
+  "id": 478
+ },
+ {
+  "label": "human",
+  "source": "Review comment",
+  "text": "This patch looks fine, but please add a brief comment explaining why the retry limit is two; it isn't obvious from the code alone.",
+  "id": 479
+ },
+ {
+  "label": "human",
+  "source": "Tutorial sentence",
+  "text": "Clone the repository, run the package manager to install dependencies, and then execute the test suite to verify baseline behavior.",
+  "id": 480
+ },
+ {
+  "label": "human",
+  "source": "Wikipedia (paraphrase)",
+  "text": "A convex function has the property that the line segment between any two points on its graph lies above the graph, simplifying optimization tasks.",
+  "id": 481
+ },
+ {
+  "label": "human",
+  "source": "StackOverflow (paraphrase)",
+  "text": "To fix the timeout, add an await to the I/O operation; without it the function returned before the write completed and caused a race.",
+  "id": 482
+ },
+ {
+  "label": "human",
+  "source": "HackerNews (paraphrase)",
+  "text": "I prefer simple scripts for migrations because they have fewer moving parts and are easier to reason about when something goes wrong.",
+  "id": 483
+ },
+ {
+  "label": "human",
+  "source": "Personal note",
+  "text": "I break problems into testable pieces and write small functions; it makes debugging faster and keeps reviews focused on intent.",
+  "id": 484
+ },
+ {
+  "label": "human",
+  "source": "Operational email",
+  "text": "Heads up: the nightly job failed due to a rotated dataset path; added a symlink and an alert to catch it next time automatically.",
+  "id": 485
+ },
+ {
+  "label": "human",
+  "source": "Forum reply",
+  "text": "Don't enable aggressive caching on that endpoint; users expect near-real-time data and stale caches would degrade the experience for many clients.",
+  "id": 486
+ },
+ {
+  "label": "human",
+  "source": "Technical recommendation",
+  "text": "Use a brief lock in the writer to avoid lost updates; optimistic concurrency would be brittle given current contention patterns.",
+  "id": 487
+ },
+ {
+  "label": "human",
+  "source": "Project note",
+  "text": "Pin package versions for CI reproducibility and include a short bootstrap script to recreate the environment reliably across machines.",
+  "id": 488
  }
 ]
