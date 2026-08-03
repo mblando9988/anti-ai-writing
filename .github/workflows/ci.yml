@@ -1,0 +1,33 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  data:
+    # The embedder is Apple-only, but the corpus lint and the backtest replay
+    # the hook's scoring math over the precomputed embeddings, so they run on
+    # plain Linux. No marketplace actions and no third-party packages: the
+    # checkout is a plain git fetch and the backtest has a stdlib fallback,
+    # so this job works even where external actions are disallowed.
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        run: |
+          git init -q .
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}"
+          git fetch -q --depth 1 origin "${GITHUB_REF}"
+          git checkout -q FETCH_HEAD
+      - name: numpy (optional speedup; everything still works without it)
+        run: pip install numpy --break-system-packages 2>/dev/null || pip install numpy || true
+      - name: corpus lint
+        run: python3 test/lint_corpus.py
+      - name: backtest (apple engine, precomputed embeddings)
+        run: python3 test/backtest.py
+      - name: backtest (portable engine, whole corpus)
+        run: python3 test/backtest.py --portable
+      - name: case eval (portable engine)
+        run: HOOK="python3 src/anti_ai_sem.py" python3 test/eval.py
+      - name: verify (every corpus example through the real hook)
+        run: python3 test/verify_portable.py
