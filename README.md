@@ -1,10 +1,11 @@
 # anti-ai-writing
 
-Flags AI-sounding text by comparing it to labeled examples instead of matching keywords.
+Flags AI-sounding text by comparing it to labeled examples of AI and human writing.
 
-It embeds a passage with Apple's NLEmbedding (sentence vectors) and runs a k-nearest-neighbor
-vote against a corpus of AI and human writing. If most of the nearest examples are AI, it flags
-the text. There's no word list in the decision.
+It embeds a passage with Apple's NLContextualEmbedding and compares it with every example in the
+corpus. The score is the average similarity to the 5 closest AI examples minus the average
+similarity to the 5 closest human ones. A few phrase checks (praise openers, validation,
+disagreement) nudge the score by a small fixed amount. Above 0.02, the text is flagged.
 
 macOS only (uses the NaturalLanguage framework). Needs swiftc and python3.
 
@@ -28,11 +29,11 @@ Exit 2 means flagged, 0 means not. Bad or empty input exits 0.
 python3 test/verify_sem.py
 ```
 
-Runs every corpus item through the binary and prints precision/recall. Last run was 0.99/0.96 on 431 examples. `test/ab_eval.py` compares it against a plain keyword baseline on a held-out split. `test/eval.py` runs the case files under `test/cases/` and reports false positives and negatives.
+Runs every corpus item (489 right now) through the binary and prints precision and recall. `test/ab_eval.py` compares a plain k-NN vote with a keyword baseline on a held-out split. `test/eval.py` runs the case files under `test/cases/` and reports false positives and negatives.
 
 ## demo
 
-Two ways to see it decide, live:
+Demos:
 
 ```
 # terminal UI: type a sentence, Enter to check, Ctrl-C to quit
@@ -64,5 +65,5 @@ python3 add.py ai    "an AI-sounding sentence"
 python3 add.py human "a normal human sentence"
 ```
 
-It appends the example and rebuilds. Add a bunch and it gets better at the kinds you give it.
+It appends the example and rebuilds the embeddings.
 
